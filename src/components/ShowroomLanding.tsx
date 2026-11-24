@@ -82,7 +82,7 @@ export function ShowroomLanding() {
               overLightSection ? 'text-[#59606B]' : 'text-white/65'
             }`}
           >
-            Showroom Cars
+            {t.brandSubtitle}
           </span>
         </button>
 

@@ -127,7 +127,7 @@ export interface Translations {
 export const translations: Record<Language, Translations> = {
   en: {
     brandName: 'Progress Digital',
-    brandSubtitle: 'Showroom Cars',
+    brandSubtitle: 'Cars Showroom',
     menuLabel: 'Menu',
     menu: {
       models: 'Models',
@@ -158,7 +158,7 @@ export const translations: Record<Language, Translations> = {
       featureModular: 'Modular Equipment',
       featureRealtime: 'Real-time WebGL',
       footerNote:
-        'Progress Digital — Showroom Cars. Interactive 3D portfolio showcase built with Three.js & React Three Fiber.',
+        'Progress Digital — Cars Showroom. Interactive 3D portfolio showcase built with Three.js & React Three Fiber.',
     },
     steps: {
       exterior: 'Exterior',
@@ -253,7 +253,7 @@ export const translations: Record<Language, Translations> = {
   },
   es: {
     brandName: 'Progress Digital',
-    brandSubtitle: 'Showroom Cars',
+    brandSubtitle: 'Cars Showroom',
     menuLabel: 'Menú',
     menu: {
       models: 'Modelos',
@@ -284,7 +284,7 @@ export const translations: Record<Language, Translations> = {
       featureModular: 'Accesorios Modulares',
       featureRealtime: 'WebGL en Tiempo Real',
       footerNote:
-        'Progress Digital — Showroom Cars. Demostración interactiva de portafolio en Three.js y React Three Fiber.',
+        'Progress Digital — Cars Showroom. Demostración interactiva de portafolio en Three.js y React Three Fiber.',
     },
     steps: {
       exterior: 'Exterior',
