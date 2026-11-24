@@ -110,28 +110,6 @@ function GlbModularAccessories({
     )
   }
 
-  if (vehicleId === 'mclaren-p1' && enabled.has('carbon-splitter')) {
-    return (
-      <group name="McLarenFrontSplitter" position={[0, 0.09, 2.24]}>
-        <mesh castShadow>
-          <boxGeometry args={[1.92, 0.028, 0.34]} />
-          <meshPhysicalMaterial color="#181b21" roughness={0.26} metalness={0.35} clearcoat={0.85} />
-        </mesh>
-      </group>
-    )
-  }
-
-  if (vehicleId === 'lotus-exige-240' && enabled.has('front-splitter')) {
-    return (
-      <group name="LotusFrontSplitter" position={[0, 0.11, 1.88]}>
-        <mesh castShadow>
-          <boxGeometry args={[1.56, 0.026, 0.28]} />
-          <meshPhysicalMaterial color="#181b21" roughness={0.28} metalness={0.35} clearcoat={0.8} />
-        </mesh>
-      </group>
-    )
-  }
-
   return null
 }
 

@@ -175,16 +175,6 @@ export const VEHICLES: VehicleDefinition[] = [
         proceduralId: 'mclaren-wing-deploy',
         defaultEnabled: true,
       },
-      {
-        id: 'carbon-splitter',
-        name: { en: 'Extended Front Carbon Splitter', es: 'Splitter Frontal de Carbono' },
-        description: {
-          en: 'Adds a motorsport front carbon lip for increased front-axle downforce.',
-          es: 'Agrega labio frontal de carbono para mayor carga aerodinámica.',
-        },
-        price: 8900,
-        proceduralId: 'front-splitter',
-      },
     ],
   },
   {
@@ -344,16 +334,6 @@ export const VEHICLES: VehicleDefinition[] = [
         meshNames: ['WING'],
         proceduralId: 'rear-wing',
         defaultEnabled: true,
-      },
-      {
-        id: 'front-splitter',
-        name: { en: 'Carbon Track Splitter', es: 'Splitter Frontal de Carbono' },
-        description: {
-          en: 'Increases front-end downforce during high-speed cornering.',
-          es: 'Aumenta la carga aerodinámica delantera en curva rápida.',
-        },
-        price: 1750,
-        proceduralId: 'front-splitter',
       },
     ],
   },
