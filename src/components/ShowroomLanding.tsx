@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight, Menu } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Menu } from 'lucide-react'
 import { VEHICLES } from '../config/vehicles'
 import { translations } from '../i18n/translations'
 import { useConfiguratorStore } from '../store/useConfiguratorStore'
@@ -64,25 +64,32 @@ export function ShowroomLanding() {
           <span className="hidden sm:inline">{t.menuLabel}</span>
         </button>
 
-        {/* Center: Wide Porsche-inspired Geometric Wordmark */}
+        {/* Center: Progress Digital Logo + Wide Geometric Wordmark */}
         <button
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="flex cursor-pointer flex-col items-center text-center"
+          className="flex cursor-pointer items-center gap-2.5 text-left sm:gap-3"
         >
-          <span
-            className={`font-wordmark text-[10px] tracking-[0.2em] sm:text-[15px] sm:tracking-[0.34em] ${
-              overLightSection ? 'text-[#111316]' : 'text-white'
-            }`}
-          >
-            PROGRESS DIGITAL
-          </span>
-          <span
-            className={`mt-0.5 text-[9px] font-medium tracking-[0.24em] uppercase sm:text-[10px] sm:tracking-[0.32em] ${
-              overLightSection ? 'text-[#59606B]' : 'text-white/65'
-            }`}
-          >
-            {t.brandSubtitle}
+          <img
+            src="/brand/progress-digital-logo.webp"
+            alt="Progress Digital"
+            className="h-6 w-6 shrink-0 object-contain sm:h-8 sm:w-8"
+          />
+          <span className="flex flex-col">
+            <span
+              className={`font-wordmark text-[10px] leading-tight tracking-[0.18em] sm:text-[14px] sm:tracking-[0.3em] ${
+                overLightSection ? 'text-[#111316]' : 'text-white'
+              }`}
+            >
+              PROGRESS DIGITAL
+            </span>
+            <span
+              className={`mt-0.5 text-[9px] font-medium tracking-[0.22em] uppercase sm:text-[10px] sm:tracking-[0.3em] ${
+                overLightSection ? 'text-[#59606B]' : 'text-white/65'
+              }`}
+            >
+              {t.brandSubtitle}
+            </span>
           </span>
         </button>
 
@@ -208,7 +215,7 @@ export function ShowroomLanding() {
                   className="porsche-card-img absolute inset-0 h-full w-full object-cover"
                 />
                 <div
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#0d0f13]/90 hidden lg:block"
+                  className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-transparent via-transparent to-[#0d0f13]/90 lg:block"
                   aria-hidden="true"
                 />
               </div>
@@ -241,7 +248,7 @@ export function ShowroomLanding() {
         </div>
       </section>
 
-      {/* 3. Obsidian Closing Studio Strip & Editorial Footer */}
+      {/* 3. Obsidian Closing Studio Strip & Branded Editorial Footer */}
       <section className="w-full bg-[#0d0f13] px-6 py-20 text-white sm:px-12 lg:px-16">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-10 lg:flex-row lg:items-end">
           <div className="max-w-xl">
@@ -269,11 +276,40 @@ export function ShowroomLanding() {
           </button>
         </div>
 
-        <footer className="mx-auto mt-16 flex max-w-7xl flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/45 sm:flex-row sm:items-center">
-          <div className="font-wordmark tracking-[0.22em] text-white/75">
-            PROGRESS DIGITAL
+        <footer className="mx-auto mt-16 flex max-w-7xl flex-col items-start justify-between gap-6 border-t border-white/12 pt-8 sm:flex-row sm:items-center">
+          {/* Left: Brand Lockup */}
+          <div className="flex items-center gap-3">
+            <img
+              src="/brand/progress-digital-logo.webp"
+              alt="Progress Digital"
+              className="h-8 w-8 shrink-0 object-contain"
+            />
+            <div>
+              <div className="font-wordmark text-xs tracking-[0.22em] text-white">
+                PROGRESS DIGITAL
+              </div>
+              <div className="mt-0.5 text-[10px] tracking-[0.2em] text-white/55 uppercase">
+                {t.brandSubtitle}
+              </div>
+            </div>
           </div>
-          <p>{t.landing.footerNote}</p>
+
+          {/* Right: Highlighted Agency Credit + Technical Note */}
+          <div className="flex flex-col items-start gap-1.5 sm:items-end">
+            <a
+              href="https://progressdigital.company"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/18 bg-white/[0.06] px-4 py-1.5 text-xs text-white/85 transition-colors hover:border-[#38bdf8]/60 hover:bg-white/[0.11] hover:text-white"
+            >
+              <span className="text-white/65">{t.madeBy}</span>
+              <span className="font-semibold tracking-wide text-white underline decoration-[#38bdf8]/70 underline-offset-4 group-hover:text-[#7dd3fc]">
+                progressdigital.company
+              </span>
+              <ArrowUpRight className="h-3.5 w-3.5 text-[#38bdf8] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+            <p className="text-[11px] text-white/45">{t.landing.footerNote}</p>
+          </div>
         </footer>
       </section>
     </div>

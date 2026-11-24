@@ -445,33 +445,52 @@ export function ConfigSidebar() {
         )}
       </div>
 
-      {/* Fixed Commercial Footer Actions */}
-      <div className="flex items-center gap-2.5 border-t border-[#E6E8EC] bg-white px-5 py-3.5 lg:px-6">
-        <button
-          type="button"
-          onClick={handleShare}
-          className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-full border border-[#141619] bg-white px-4 py-2.5 text-xs font-semibold text-[#141619] transition-colors hover:bg-[#F5F6F8]"
-        >
-          {copied ? (
-            <>
-              <Check className="h-3.5 w-3.5 text-emerald-600" />
-              <span>{t.sidebar.linkCopied}</span>
-            </>
-          ) : (
-            <>
-              <Share2 className="h-3.5 w-3.5" />
-              <span>{t.sidebar.shareBuild}</span>
-            </>
-          )}
-        </button>
+      {/* Fixed Commercial Footer Actions + Agency Credit */}
+      <div className="border-t border-[#E6E8EC] bg-white px-5 pt-3.5 pb-2.5 lg:px-6">
+        <div className="flex items-center gap-2.5">
+          <button
+            type="button"
+            onClick={handleShare}
+            className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-full border border-[#141619] bg-white px-4 py-2.5 text-xs font-semibold text-[#141619] transition-colors hover:bg-[#F5F6F8]"
+          >
+            {copied ? (
+              <>
+                <Check className="h-3.5 w-3.5 text-emerald-600" />
+                <span>{t.sidebar.linkCopied}</span>
+              </>
+            ) : (
+              <>
+                <Share2 className="h-3.5 w-3.5" />
+                <span>{t.sidebar.shareBuild}</span>
+              </>
+            )}
+          </button>
 
-        <button
-          type="button"
-          onClick={() => setSummaryOpen(true)}
-          className="flex flex-1 cursor-pointer items-center justify-center rounded-full bg-[#C8102E] px-4 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-[#a90d26]"
-        >
-          {t.sidebar.finishBuild}
-        </button>
+          <button
+            type="button"
+            onClick={() => setSummaryOpen(true)}
+            className="flex flex-1 cursor-pointer items-center justify-center rounded-full bg-[#C8102E] px-4 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-[#a90d26]"
+          >
+            {t.sidebar.finishBuild}
+          </button>
+        </div>
+
+        <div className="mt-2.5 flex items-center justify-center gap-1.5 text-[11px] text-[#6B7280]">
+          <img
+            src="/brand/progress-digital-logo.webp"
+            alt="Progress Digital"
+            className="h-3.5 w-3.5 shrink-0 object-contain"
+          />
+          <span>{t.madeBy}</span>
+          <a
+            href="https://progressdigital.company"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-[#111316] underline decoration-[#0ea5e9]/60 underline-offset-2 transition-colors hover:text-[#0284c7]"
+          >
+            progressdigital.company
+          </a>
+        </div>
       </div>
     </aside>
   )

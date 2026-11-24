@@ -118,8 +118,26 @@ export function SummaryModal({ captureSnapshot }: SummaryModalProps) {
               </div>
             </div>
 
-            {/* Non-commercial attribution footer */}
+            {/* Branded agency & 3D model attribution footer */}
             <div className="rounded-xl bg-[#F5F6F8] p-3 text-[11px] leading-relaxed text-[#5C636E]">
+              <div className="mb-1.5 flex items-center gap-2">
+                <img
+                  src="/brand/progress-digital-logo.webp"
+                  alt="Progress Digital"
+                  className="h-4 w-4 shrink-0 object-contain"
+                />
+                <span>
+                  {t.madeBy}{' '}
+                  <a
+                    href="https://progressdigital.company"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-[#141619] underline decoration-[#0ea5e9]/60 underline-offset-2 hover:text-[#0284c7]"
+                  >
+                    progressdigital.company
+                  </a>
+                </span>
+              </div>
               <p>{t.summary.disclaimer}</p>
               <a
                 href={vehicle.attribution.sourceUrl}

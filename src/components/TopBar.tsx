@@ -56,14 +56,21 @@ export function TopBar() {
         <button
           type="button"
           onClick={() => setActiveView('landing')}
-          className="hidden shrink-0 cursor-pointer text-left md:block"
+          className="hidden shrink-0 cursor-pointer items-center gap-2.5 text-left md:flex"
           title={t.menu.backToHome}
         >
-          <div className="font-wordmark text-[11px] tracking-[0.2em] text-[#111316]">
-            PROGRESS DIGITAL
-          </div>
-          <div className="text-[10px] tracking-[0.16em] text-[#59606B] uppercase">
-            {t.brandSubtitle}
+          <img
+            src="/brand/progress-digital-logo.webp"
+            alt="Progress Digital"
+            className="h-7 w-7 shrink-0 object-contain"
+          />
+          <div>
+            <div className="font-wordmark text-[11px] leading-tight tracking-[0.2em] text-[#111316]">
+              PROGRESS DIGITAL
+            </div>
+            <div className="text-[10px] leading-tight tracking-[0.16em] text-[#59606B] uppercase">
+              {t.brandSubtitle}
+            </div>
           </div>
         </button>
 

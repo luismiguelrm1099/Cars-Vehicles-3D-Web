@@ -71,12 +71,19 @@ export function PorscheMenuDrawer() {
         {/* Left Navigation Column — pure white, understated Porsche typography */}
         <div className="flex w-full shrink-0 flex-col justify-between bg-white px-6 py-7 md:w-[290px] md:overflow-y-auto md:px-8 md:py-10">
           <div>
-            <div className="mb-7 md:mb-9">
-              <div className="font-wordmark text-[11px] tracking-[0.26em] text-[#111316]">
-                PROGRESS DIGITAL
-              </div>
-              <div className="mt-1 text-[11px] tracking-[0.18em] text-[#6B7280] uppercase">
-                {t.brandSubtitle}
+            <div className="mb-7 flex items-center gap-3 md:mb-9">
+              <img
+                src="/brand/progress-digital-logo.webp"
+                alt="Progress Digital"
+                className="h-8 w-8 shrink-0 object-contain"
+              />
+              <div>
+                <div className="font-wordmark text-[11px] leading-tight tracking-[0.24em] text-[#111316]">
+                  PROGRESS DIGITAL
+                </div>
+                <div className="mt-0.5 text-[10px] tracking-[0.18em] text-[#6B7280] uppercase">
+                  {t.brandSubtitle}
+                </div>
               </div>
             </div>
 
@@ -145,36 +152,48 @@ export function PorscheMenuDrawer() {
             </div>
           </div>
 
-          {/* Language Footer */}
-          <div className="mt-6 flex items-center justify-between border-t border-[#ECEDEF] pt-4 md:mt-8 md:pt-5">
-            <span className="flex items-center gap-2 text-xs font-medium text-[#6B7280]">
-              <Globe className="h-4 w-4" />
-              {t.menu.language}
-            </span>
-            <div className="flex rounded-md bg-[#F2F3F5] p-0.5 text-xs font-medium">
-              <button
-                type="button"
-                onClick={() => setLanguage('en')}
-                className={`cursor-pointer rounded px-2.5 py-1 transition-colors ${
-                  language === 'en'
-                    ? 'bg-white text-[#111316] shadow-xs'
-                    : 'text-[#6B7280] hover:text-[#111316]'
-                }`}
-              >
-                EN
-              </button>
-              <button
-                type="button"
-                onClick={() => setLanguage('es')}
-                className={`cursor-pointer rounded px-2.5 py-1 transition-colors ${
-                  language === 'es'
-                    ? 'bg-white text-[#111316] shadow-xs'
-                    : 'text-[#6B7280] hover:text-[#111316]'
-                }`}
-              >
-                ES
-              </button>
+          {/* Language & Agency Footer */}
+          <div className="mt-6 space-y-3 border-t border-[#ECEDEF] pt-4 md:mt-8 md:pt-5">
+            <div className="flex items-center justify-between">
+              <span className="flex items-center gap-2 text-xs font-medium text-[#6B7280]">
+                <Globe className="h-4 w-4" />
+                {t.menu.language}
+              </span>
+              <div className="flex rounded-md bg-[#F2F3F5] p-0.5 text-xs font-medium">
+                <button
+                  type="button"
+                  onClick={() => setLanguage('en')}
+                  className={`cursor-pointer rounded px-2.5 py-1 transition-colors ${
+                    language === 'en'
+                      ? 'bg-white text-[#111316] shadow-xs'
+                      : 'text-[#6B7280] hover:text-[#111316]'
+                  }`}
+                >
+                  EN
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLanguage('es')}
+                  className={`cursor-pointer rounded px-2.5 py-1 transition-colors ${
+                    language === 'es'
+                      ? 'bg-white text-[#111316] shadow-xs'
+                      : 'text-[#6B7280] hover:text-[#111316]'
+                  }`}
+                >
+                  ES
+                </button>
+              </div>
             </div>
+
+            <a
+              href="https://progressdigital.company"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between rounded-md bg-[#F7F8FA] px-3 py-2 text-[11px] text-[#59606B] transition-colors hover:bg-[#EFF1F5] hover:text-[#111316]"
+            >
+              <span>{t.madeBy}</span>
+              <span className="font-semibold text-[#111316]">progressdigital.company</span>
+            </a>
           </div>
         </div>
 
