@@ -128,7 +128,7 @@ export function TopBar() {
             >
               {t.steps[step]}
               {isActive && (
-                <span className="absolute right-2 bottom-0 left-2 h-[3px] rounded-t-full bg-[#D83A16]" />
+                <span className="absolute right-2 bottom-0 left-2 h-[3px] rounded-t-full bg-[#126AB7]" />
               )}
             </button>
           )

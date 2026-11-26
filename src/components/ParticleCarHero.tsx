@@ -146,10 +146,10 @@ const EMBER_FRAGMENT = /* glsl */ `
     float d = length(uv);
     if (d > 0.5) discard;
     float glow = smoothstep(0.5, 0.06, d);
-    // Warm molten gold with occasional vivid vermilion-ember spark
+    // Warm molten gold with occasional subtle Progress Digital blue spark
     vec3 goldCol = mix(vec3(0.92, 0.60, 0.18), vec3(1.0, 0.92, 0.72), glow);
-    vec3 vermilionSpark = vec3(1.0, 0.34, 0.14);
-    vec3 col = mix(goldCol, vermilionSpark, step(0.82, vEmberHue) * 0.65);
+    vec3 brandBlueSpark = vec3(0.125, 0.675, 0.925);
+    vec3 col = mix(goldCol, brandBlueSpark, step(0.86, vEmberHue) * 0.55);
     gl_FragColor = vec4(col, glow * vAlpha);
   }
 `
@@ -409,8 +409,8 @@ export function ParticleCarHero({
         className="pointer-events-none absolute inset-0"
         style={{
           background: isMobileView
-            ? 'radial-gradient(ellipse 85% 42% at 50% 32%, rgba(226, 182, 89, 0.14) 0%, rgba(216, 58, 22, 0.04) 48%, rgba(8, 9, 11, 1) 80%)'
-            : 'radial-gradient(ellipse 60% 52% at 55% 46%, rgba(226, 182, 89, 0.14) 0%, rgba(216, 58, 22, 0.04) 48%, rgba(8, 9, 11, 1) 82%)',
+            ? 'radial-gradient(ellipse 85% 42% at 50% 32%, rgba(226, 182, 89, 0.14) 0%, rgba(18, 106, 183, 0.05) 48%, rgba(8, 9, 11, 1) 80%)'
+            : 'radial-gradient(ellipse 60% 52% at 55% 46%, rgba(226, 182, 89, 0.14) 0%, rgba(18, 106, 183, 0.05) 48%, rgba(8, 9, 11, 1) 82%)',
         }}
         aria-hidden="true"
       />
@@ -457,7 +457,7 @@ export function ParticleCarHero({
         aria-hidden="true"
       />
 
-      {/* Headline & Vivid Signal Vermilion CTA */}
+      {/* Headline & Progress Digital Blue CTA */}
       <div className="pointer-events-none relative z-10 flex flex-col justify-end px-6 pt-3 sm:px-10 md:h-full md:px-12 md:pt-0 md:pb-14 lg:px-16 lg:pb-16">
         <div className="max-w-xl">
           <h1 className="animate-hero-lead text-[36px] leading-[1.06] font-normal tracking-[-0.025em] text-[#F4EFE6] sm:text-5xl lg:text-[4rem] lg:leading-[1.04]">
@@ -469,7 +469,7 @@ export function ParticleCarHero({
             <button
               type="button"
               onClick={onEnterConfigurator}
-              className="btn-tactile group inline-flex h-11 cursor-pointer items-center gap-2 rounded-lg bg-[#D83A16] px-5 text-sm font-medium text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] hover:bg-[#EA451E] sm:h-12 sm:px-6"
+              className="btn-tactile group inline-flex h-11 cursor-pointer items-center gap-2 rounded-lg bg-[#126AB7] px-5 text-sm font-medium text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] hover:bg-[#1882D6] sm:h-12 sm:px-6"
             >
               <span>{t.landing.heroCta}</span>
               <ArrowRight className="h-4 w-4 stroke-[1.75] transition-transform duration-150 group-hover:translate-x-0.5" />

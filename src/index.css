@@ -19,9 +19,9 @@
     --ink-titanium: #a49e93;
     --ink-muted: #7c766c;
     --accent-gold: #e2b659;
-    --accent-vermilion: #d83a16;
-    --accent-vermilion-hover: #ea451e;
-    --accent-ember: #ff5226;
+    --accent-brand: #126ab7;
+    --accent-brand-hover: #1882d6;
+    --accent-brand-bright: #20acec;
     --border-gold: rgba(226, 182, 89, 0.16);
     --border-hairline: rgba(244, 239, 230, 0.08);
 
@@ -30,7 +30,7 @@
     --ink-secondary: #59606b;
     --surface-panel: #ffffff;
     --surface-subtle: #f4f5f7;
-    --accent-motorsport: #d83a16;
+    --accent-motorsport: #126ab7;
   }
 
   html {

@@ -115,7 +115,7 @@ export function ViewportControls({ onTakeSnapshot }: ViewportControlsProps) {
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className={`hidden cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-2 text-xs font-medium transition-colors sm:flex ${glassPillClass} hover:border-[#D83A16]`}
+            className={`hidden cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-2 text-xs font-medium transition-colors sm:flex ${glassPillClass} hover:border-[#126AB7]`}
             title={t.viewport.loadLocalGlb}
           >
             <Upload className="h-3.5 w-3.5" />
@@ -126,7 +126,7 @@ export function ViewportControls({ onTakeSnapshot }: ViewportControlsProps) {
             <button
               type="button"
               onClick={() => setLocalGlbUrl(activeVehicleId, null)}
-              className="flex cursor-pointer items-center gap-1 rounded-xl border border-[#D83A16]/40 bg-[#D83A16] px-2.5 py-2 text-xs font-medium text-white shadow-sm hover:bg-[#BF3010]"
+              className="flex cursor-pointer items-center gap-1 rounded-xl border border-[#126AB7]/40 bg-[#126AB7] px-2.5 py-2 text-xs font-medium text-white shadow-sm hover:bg-[#0D5696]"
               title="Revert to default model"
             >
               <X className="h-3.5 w-3.5" />
@@ -140,7 +140,7 @@ export function ViewportControls({ onTakeSnapshot }: ViewportControlsProps) {
             onClick={() => setInspectorEnabled(!inspectorEnabled)}
             className={`hidden cursor-pointer items-center gap-1.5 rounded-xl border px-2.5 py-2 text-xs font-medium transition-colors sm:flex ${
               inspectorEnabled
-                ? 'border-[#D83A16] bg-[#D83A16] text-white'
+                ? 'border-[#126AB7] bg-[#126AB7] text-white'
                 : glassPillClass
             }`}
             title={t.viewport.inspectorMode}
@@ -272,7 +272,7 @@ export function ViewportControls({ onTakeSnapshot }: ViewportControlsProps) {
                 <rect x="68" y="21" width="22" height="14" rx="2" strokeOpacity="0.8" />
               </svg>
             )}
-            <span className="absolute top-1.5 right-1.5 rounded-full bg-[#D83A16] px-1.5 py-0.5 text-[9px] font-semibold text-white">
+            <span className="absolute top-1.5 right-1.5 rounded-full bg-[#126AB7] px-1.5 py-0.5 text-[9px] font-semibold text-white">
               360°
             </span>
           </div>
@@ -305,7 +305,7 @@ export function ViewportControls({ onTakeSnapshot }: ViewportControlsProps) {
                   onClick={() => setActiveCamera(preset)}
                   className={`cursor-pointer whitespace-nowrap rounded-lg px-2 py-1 text-[11px] font-medium transition-colors sm:px-2.5 sm:py-1.5 sm:text-xs ${
                     active
-                      ? 'bg-[#D83A16] text-white'
+                      ? 'bg-[#126AB7] text-white'
                       : isLightBg
                         ? 'text-[#5C636E] hover:bg-[#F5F6F8] hover:text-[#141619]'
                         : 'text-white/75 hover:bg-white/10 hover:text-white'

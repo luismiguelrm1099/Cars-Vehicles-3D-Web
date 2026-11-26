@@ -132,7 +132,7 @@ export function ShowroomLanding() {
             </h2>
             <div className="flex items-center gap-2 text-xs text-[#A49E93]">
               <span
-                className="h-2 w-2 rounded-full bg-[#FF5226]"
+                className="h-2 w-2 rounded-full bg-[#20ACEC]"
                 aria-hidden="true"
               />
               <span>{t.landing.featureRealtime}</span>
@@ -168,7 +168,7 @@ export function ShowroomLanding() {
                   <span className="mt-1 text-xs text-[#F4EFE6]/75">{v.brand}</span>
                 </div>
 
-                {/* Bottom metadata + vivid vermilion hover affordance */}
+                {/* Bottom metadata + Progress Digital blue hover affordance */}
                 <div className="relative z-10 flex items-end justify-between gap-4">
                   <div>
                     <div className="text-base font-medium text-[#F4EFE6] sm:text-lg">
@@ -184,7 +184,7 @@ export function ShowroomLanding() {
                       </span>
                     </div>
                   </div>
-                  <span className="btn-tactile flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#F4EFE6]/30 bg-[#08090B]/55 text-[#F4EFE6] backdrop-blur-sm group-hover:border-[#D83A16] group-hover:bg-[#D83A16] group-hover:text-white">
+                  <span className="btn-tactile flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#F4EFE6]/30 bg-[#08090B]/55 text-[#F4EFE6] backdrop-blur-sm group-hover:border-[#126AB7] group-hover:bg-[#126AB7] group-hover:text-white">
                     <ArrowRight className="h-4 w-4 stroke-[1.5]" />
                   </span>
                 </div>
@@ -228,7 +228,7 @@ export function ShowroomLanding() {
                   <div className="tabular-nums text-sm font-medium text-[#E2B659]">
                     {t.landing.startingFrom} {formatCurrency(utilityVehicle.basePrice)}
                   </div>
-                  <span className="btn-tactile inline-flex items-center gap-2 rounded-lg border border-[#E2B659]/35 bg-[#1A1E26] px-4 py-2 text-xs font-medium text-[#F4EFE6] group-hover:border-[#D83A16] group-hover:bg-[#D83A16] group-hover:text-white">
+                  <span className="btn-tactile inline-flex items-center gap-2 rounded-lg border border-[#E2B659]/35 bg-[#1A1E26] px-4 py-2 text-xs font-medium text-[#F4EFE6] group-hover:border-[#126AB7] group-hover:bg-[#126AB7] group-hover:text-white">
                     <span>{t.landing.configureModel}</span>
                     <ArrowRight className="h-3.5 w-3.5 stroke-[1.5]" />
                   </span>
@@ -254,7 +254,7 @@ export function ShowroomLanding() {
               <span>{t.landing.featureInterior}</span>
               <span>{t.landing.featureModular}</span>
               <span className="inline-flex items-center gap-1.5 text-[#A49E93]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#FF5226]" aria-hidden="true" />
+                <span className="h-1.5 w-1.5 rounded-full bg-[#20ACEC]" aria-hidden="true" />
                 {t.landing.featureRealtime}
               </span>
             </div>
@@ -263,7 +263,7 @@ export function ShowroomLanding() {
           <button
             type="button"
             onClick={() => openConfiguratorForVehicle('mclaren-p1')}
-            className="btn-tactile group inline-flex h-12 cursor-pointer items-center gap-2.5 rounded-lg bg-[#D83A16] px-6 text-sm font-medium text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] hover:bg-[#EA451E]"
+            className="btn-tactile group inline-flex h-12 cursor-pointer items-center gap-2.5 rounded-lg bg-[#126AB7] px-6 text-sm font-medium text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] hover:bg-[#1882D6]"
           >
             <span>{t.landing.studioCta}</span>
             <ArrowRight className="h-4 w-4 stroke-[1.75] transition-transform duration-150 group-hover:translate-x-0.5" />
@@ -294,13 +294,13 @@ export function ShowroomLanding() {
               href="https://progressdigital.company"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-tactile group inline-flex items-center gap-2 rounded-lg border border-[#E2B659]/25 bg-[#13161C] px-4 py-2 text-xs text-[#A49E93] hover:border-[#E2B659]/60 hover:bg-[#1A1E26] hover:text-[#F4EFE6]"
+              className="btn-tactile group inline-flex items-center gap-2 rounded-lg border border-[#E2B659]/25 bg-[#13161C] px-4 py-2 text-xs text-[#A49E93] hover:border-[#20ACEC]/60 hover:bg-[#1A1E26] hover:text-[#F4EFE6]"
             >
               <span>{t.madeBy}</span>
-              <span className="font-semibold text-[#F4EFE6] underline decoration-[#E2B659]/75 underline-offset-4 group-hover:text-[#E2B659]">
+              <span className="font-semibold text-[#F4EFE6] underline decoration-[#20ACEC]/75 underline-offset-4 group-hover:text-[#20ACEC]">
                 progressdigital.company
               </span>
-              <ArrowUpRight className="h-3.5 w-3.5 stroke-[1.5] text-[#FF5226] transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight className="h-3.5 w-3.5 stroke-[1.5] text-[#20ACEC] transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <p className="text-xs text-[#7C766C]">{t.landing.footerNote}</p>
           </div>
