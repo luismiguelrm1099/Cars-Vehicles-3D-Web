@@ -216,13 +216,11 @@ export function PorscheMenuDrawer() {
                   onClick={() => openConfiguratorForVehicle(v.id)}
                   className="porsche-card group block w-full cursor-pointer text-left"
                 >
-                  {/* Clean model heading */}
+                  {/* Clean model heading — Amarillo Señal (#F4C430) across all models */}
                   <div className="flex items-baseline justify-between">
                     <span
-                      className={`text-[18px] tracking-[-0.01em] transition-colors sm:text-[19px] ${
-                        isCurrent
-                          ? 'font-medium text-[#F4C430]'
-                          : 'font-normal text-[#F3F5F8] group-hover:text-[#F4C430]'
+                      className={`text-[18px] tracking-[-0.01em] text-[#F4C430] transition-colors group-hover:text-[#FFD44F] sm:text-[19px] ${
+                        isCurrent ? 'font-semibold' : 'font-medium'
                       }`}
                     >
                       {shortLabel}

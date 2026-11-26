@@ -90,8 +90,8 @@ export function ConfigSidebar() {
                 onClick={() => setActiveStep(step)}
                 className={`btn-tactile cursor-pointer rounded-full px-3 py-1 text-xs font-medium ${
                   active
-                    ? 'bg-[#18C8F0]/[0.16] text-[#18C8F0] ring-1 ring-[#18C8F0]/45'
-                    : 'text-[#99A3B2] hover:bg-[#151920] hover:text-[#F3F5F8]'
+                    ? 'bg-[#F4C430]/[0.16] font-semibold text-[#F4C430] ring-1 ring-[#F4C430]/55'
+                    : 'text-[#F4C430]/80 hover:bg-[#151920] hover:text-[#FFD44F]'
                 }`}
               >
                 {t.steps[step]}
@@ -141,8 +141,8 @@ export function ConfigSidebar() {
                 onClick={() => setActiveStep(step)}
                 className={`btn-tactile cursor-pointer rounded-full py-1.5 text-xs font-medium ${
                   active
-                    ? 'bg-[#18C8F0]/[0.16] text-[#18C8F0] ring-1 ring-[#18C8F0]/45'
-                    : 'text-[#99A3B2] hover:text-[#F3F5F8]'
+                    ? 'bg-[#F4C430]/[0.16] font-semibold text-[#F4C430] ring-1 ring-[#F4C430]/55'
+                    : 'text-[#F4C430]/80 hover:text-[#FFD44F]'
                 }`}
               >
                 {t.steps[step]}

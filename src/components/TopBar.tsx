@@ -108,7 +108,7 @@ export function TopBar() {
         </nav>
       </div>
 
-      {/* Center: Step Navigation (Cian Progress Digital active telemetry underline) */}
+      {/* Center: Step Navigation (Amarillo Señal #F4C430) */}
       <nav
         aria-label="Configuration steps"
         className="hidden h-full items-center gap-1 xl:flex"
@@ -122,13 +122,13 @@ export function TopBar() {
               onClick={() => setActiveStep(step)}
               className={`relative flex h-full cursor-pointer items-center px-4 text-[13px] font-medium transition-colors ${
                 isActive
-                  ? 'text-[#F3F5F8]'
-                  : 'text-[#99A3B2] hover:text-[#F3F5F8]'
+                  ? 'font-semibold text-[#F4C430]'
+                  : 'text-[#F4C430]/75 hover:text-[#FFD44F]'
               }`}
             >
               {t.steps[step]}
               {isActive && (
-                <span className="absolute right-2 bottom-0 left-2 h-[2px] rounded-t-full bg-[#18C8F0]" />
+                <span className="absolute right-2 bottom-0 left-2 h-[2px] rounded-t-full bg-[#F4C430]" />
               )}
             </button>
           )
