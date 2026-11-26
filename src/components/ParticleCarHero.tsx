@@ -146,10 +146,10 @@ const EMBER_FRAGMENT = /* glsl */ `
     float d = length(uv);
     if (d > 0.5) discard;
     float glow = smoothstep(0.5, 0.06, d);
-    // Warm molten gold with occasional subtle Progress Digital blue spark
-    vec3 goldCol = mix(vec3(0.92, 0.60, 0.18), vec3(1.0, 0.92, 0.72), glow);
-    vec3 brandBlueSpark = vec3(0.125, 0.675, 0.925);
-    vec3 col = mix(goldCol, brandBlueSpark, step(0.86, vEmberHue) * 0.55);
+    // Warm signal-gold with occasional Cian Progress Digital (#18C8F0) telemetry spark
+    vec3 goldCol = mix(vec3(0.95, 0.72, 0.18), vec3(1.0, 0.94, 0.72), glow);
+    vec3 pdCyanSpark = vec3(0.094, 0.784, 0.941);
+    vec3 col = mix(goldCol, pdCyanSpark, step(0.86, vEmberHue) * 0.6);
     gl_FragColor = vec4(col, glow * vAlpha);
   }
 `
@@ -402,15 +402,15 @@ export function ParticleCarHero({
       onPointerLeave={() => {
         pointerRef.current.active = false
       }}
-      className="relative flex w-full flex-col overflow-hidden bg-[#08090B] pt-16 pb-10 text-[#F4EFE6] md:block md:h-[100svh] md:min-h-[620px] md:max-h-[960px] md:pt-0 md:pb-0"
+      className="relative flex w-full flex-col overflow-hidden bg-[#0B0D10] pt-16 pb-10 text-[#F3F5F8] md:block md:h-[100svh] md:min-h-[620px] md:max-h-[960px] md:pt-0 md:pb-0"
     >
-      {/* Subtle architectural warm-gold key atmosphere behind the 3D McLaren sculpture */}
+      {/* Subtle architectural atmosphere behind the 3D McLaren sculpture (Paleta Progress Digital) */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background: isMobileView
-            ? 'radial-gradient(ellipse 85% 42% at 50% 32%, rgba(226, 182, 89, 0.14) 0%, rgba(18, 106, 183, 0.05) 48%, rgba(8, 9, 11, 1) 80%)'
-            : 'radial-gradient(ellipse 60% 52% at 55% 46%, rgba(226, 182, 89, 0.14) 0%, rgba(18, 106, 183, 0.05) 48%, rgba(8, 9, 11, 1) 82%)',
+            ? 'radial-gradient(ellipse 85% 42% at 50% 32%, rgba(244, 196, 48, 0.13) 0%, rgba(24, 200, 240, 0.04) 48%, rgba(11, 13, 16, 1) 80%)'
+            : 'radial-gradient(ellipse 60% 52% at 55% 46%, rgba(244, 196, 48, 0.13) 0%, rgba(24, 200, 240, 0.04) 48%, rgba(11, 13, 16, 1) 82%)',
         }}
         aria-hidden="true"
       />
@@ -441,7 +441,7 @@ export function ParticleCarHero({
           onClick={() => setPaused((prev) => !prev)}
           aria-label={paused ? t.landing.playMotion : t.landing.pauseMotion}
           title={paused ? t.landing.playMotion : t.landing.pauseMotion}
-          className="btn-tactile absolute right-4 bottom-2 z-20 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-[#E2B659]/25 bg-[#13161C]/80 text-[#F4EFE6] backdrop-blur-sm md:hidden"
+          className="btn-tactile absolute right-4 bottom-2 z-20 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-[#F0F3F7]/[0.18] bg-[#151920]/85 text-[#F3F5F8] backdrop-blur-sm md:hidden"
         >
           {paused ? (
             <Play className="h-3.5 w-3.5 translate-x-[1px] stroke-[1.5]" />
@@ -453,23 +453,23 @@ export function ParticleCarHero({
 
       {/* Desktop bottom editorial vignette for effortless legibility */}
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-56 bg-gradient-to-t from-[#08090B] via-[#08090B]/60 to-transparent md:block"
+        className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-56 bg-gradient-to-t from-[#0B0D10] via-[#0B0D10]/60 to-transparent md:block"
         aria-hidden="true"
       />
 
-      {/* Headline & Progress Digital Blue CTA */}
+      {/* Headline & Amarillo Señal Primary CTA (12.1:1 AAA contrast) */}
       <div className="pointer-events-none relative z-10 flex flex-col justify-end px-6 pt-3 sm:px-10 md:h-full md:px-12 md:pt-0 md:pb-14 lg:px-16 lg:pb-16">
         <div className="max-w-xl">
-          <h1 className="animate-hero-lead text-[36px] leading-[1.06] font-normal tracking-[-0.025em] text-[#F4EFE6] sm:text-5xl lg:text-[4rem] lg:leading-[1.04]">
+          <h1 className="animate-hero-lead text-[36px] leading-[1.06] font-normal tracking-[-0.03em] text-[#F3F5F8] sm:text-5xl lg:text-[4rem] lg:leading-[1.04]">
             <span className="block">{t.landing.heroTitleLine1}</span>
-            <span className="block text-[#E2B659]">{t.landing.heroTitleLine2}</span>
+            <span className="block text-[#F4C430]">{t.landing.heroTitleLine2}</span>
           </h1>
 
           <div className="animate-hero-support pointer-events-auto mt-5 flex flex-wrap items-center gap-3 sm:mt-7">
             <button
               type="button"
               onClick={onEnterConfigurator}
-              className="btn-tactile group inline-flex h-11 cursor-pointer items-center gap-2 rounded-lg bg-[#126AB7] px-5 text-sm font-medium text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] hover:bg-[#1882D6] sm:h-12 sm:px-6"
+              className="btn-tactile group inline-flex h-11 cursor-pointer items-center gap-2 rounded-full bg-[#F4C430] px-6 text-sm font-medium text-[#090B0E] hover:bg-[#FFD44F] sm:h-12 sm:px-7"
             >
               <span>{t.landing.heroCta}</span>
               <ArrowRight className="h-4 w-4 stroke-[1.75] transition-transform duration-150 group-hover:translate-x-0.5" />
@@ -478,7 +478,7 @@ export function ParticleCarHero({
             <button
               type="button"
               onClick={onScrollToModels}
-              className="btn-tactile inline-flex h-11 cursor-pointer items-center rounded-lg border border-[#E2B659]/30 bg-[#13161C]/90 px-5 text-sm font-normal text-[#F4EFE6] hover:border-[#E2B659]/65 hover:bg-[#1A1E26] sm:h-12 sm:px-5"
+              className="btn-tactile inline-flex h-11 cursor-pointer items-center rounded-full border border-[#F0F3F7]/[0.22] bg-[#151920]/70 px-5 text-sm font-normal text-[#F3F5F8] hover:border-[#F0F3F7]/40 hover:bg-[#1B2029] sm:h-12 sm:px-6"
             >
               {t.landing.heroSecondaryCta}
             </button>
@@ -487,7 +487,7 @@ export function ParticleCarHero({
       </div>
 
       {/* Desktop bottom-center cursor cue */}
-      <div className="animate-hero-decoration pointer-events-none absolute bottom-6 left-1/2 hidden -translate-x-1/2 text-xs text-[#7C766C] md:block">
+      <div className="animate-hero-decoration pointer-events-none absolute bottom-6 left-1/2 hidden -translate-x-1/2 text-xs text-[#758091] md:block">
         {t.landing.cursorHint}
       </div>
 
@@ -497,7 +497,7 @@ export function ParticleCarHero({
         onClick={() => setPaused((prev) => !prev)}
         aria-label={paused ? t.landing.playMotion : t.landing.pauseMotion}
         title={paused ? t.landing.playMotion : t.landing.pauseMotion}
-        className="btn-tactile absolute right-10 bottom-10 z-20 hidden h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-[#E2B659]/25 bg-[#13161C]/75 text-[#F4EFE6] backdrop-blur-md hover:border-[#E2B659]/60 hover:bg-[#1A1E26] md:flex"
+        className="btn-tactile absolute right-10 bottom-10 z-20 hidden h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-[#F0F3F7]/[0.2] bg-[#151920]/80 text-[#F3F5F8] backdrop-blur-md hover:border-[#F0F3F7]/45 hover:bg-[#1B2029] md:flex"
       >
         {paused ? (
           <Play className="h-4 w-4 translate-x-[1px] stroke-[1.5]" />

@@ -71,15 +71,15 @@ function LoadingIndicator() {
   if (!active) return null
 
   return (
-    <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center bg-black/25 backdrop-blur-[2px]">
-      <div className="w-64 rounded-xl bg-white/95 p-4 shadow-xl ring-1 ring-black/5">
-        <div className="mb-2 flex items-center justify-between text-xs font-medium text-[#141619]">
+    <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center bg-[#0B0D10]/50 backdrop-blur-[2px]">
+      <div className="w-64 rounded-2xl border border-[#F0F3F7]/[0.12] bg-[#101318]/95 p-4 shadow-2xl">
+        <div className="mb-2 flex items-center justify-between text-xs font-medium text-[#F3F5F8]">
           <span>{t.viewport.loadingModel}</span>
-          <span className="tabular-nums text-[#5C636E]">{Math.round(progress)}%</span>
+          <span className="tabular-nums text-[#99A3B2]">{Math.round(progress)}%</span>
         </div>
-        <div className="h-1.5 w-full overflow-hidden rounded-full bg-[#E6E8EC]">
+        <div className="h-1.5 w-full overflow-hidden rounded-full bg-[#1B2029]">
           <div
-            className="h-full rounded-full bg-[#126AB7] transition-[width] duration-200"
+            className="h-full rounded-full bg-[#18C8F0] transition-[width] duration-200"
             style={{ width: `${Math.max(8, progress)}%` }}
           />
         </div>

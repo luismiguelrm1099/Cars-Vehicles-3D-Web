@@ -74,12 +74,12 @@ export function ConfigSidebar() {
 
   return (
     <aside
-      className={`z-20 flex w-full shrink-0 flex-col border-t border-[#E6E8EC] bg-white lg:h-full lg:w-[390px] lg:border-t-0 lg:border-l ${
+      className={`z-20 flex w-full shrink-0 flex-col border-t border-[#F0F3F7]/[0.09] bg-[#101318] text-[#F3F5F8] lg:h-full lg:w-[390px] lg:border-t-0 lg:border-l ${
         mobileExpanded ? 'h-[62vh]' : 'h-[42vh]'
       } transition-[height] duration-200 lg:transition-none`}
     >
       {/* Mobile drag/expand handle + step selector */}
-      <div className="flex items-center justify-between border-b border-[#E6E8EC] px-4 py-2 lg:hidden">
+      <div className="flex items-center justify-between border-b border-[#F0F3F7]/[0.09] px-4 py-2 lg:hidden">
         <div className="flex items-center gap-1">
           {MOBILE_STEPS.map((step) => {
             const active = activeStep === step
@@ -88,10 +88,10 @@ export function ConfigSidebar() {
                 key={step}
                 type="button"
                 onClick={() => setActiveStep(step)}
-                className={`cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium ${
+                className={`btn-tactile cursor-pointer rounded-full px-3 py-1 text-xs font-medium ${
                   active
-                    ? 'bg-[#141619] text-white'
-                    : 'text-[#5C636E] hover:bg-[#F5F6F8]'
+                    ? 'bg-[#18C8F0]/[0.16] text-[#18C8F0] ring-1 ring-[#18C8F0]/45'
+                    : 'text-[#99A3B2] hover:bg-[#151920] hover:text-[#F3F5F8]'
                 }`}
               >
                 {t.steps[step]}
@@ -102,7 +102,7 @@ export function ConfigSidebar() {
         <button
           type="button"
           onClick={() => setMobileExpanded((prev) => !prev)}
-          className="flex cursor-pointer items-center gap-1 rounded-md px-2 py-1 text-xs font-medium text-[#5C636E] hover:bg-[#F5F6F8]"
+          className="flex cursor-pointer items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium text-[#99A3B2] hover:bg-[#151920] hover:text-[#F3F5F8]"
         >
           <SlidersHorizontal className="h-3.5 w-3.5" />
           <span>{mobileExpanded ? '−' : '+'}</span>
@@ -110,20 +110,20 @@ export function ConfigSidebar() {
       </div>
 
       {/* Desktop Sub-Header: Vehicle title + desktop compact step bar for lg..xl */}
-      <div className="hidden border-b border-[#E6E8EC] px-6 pt-5 pb-4 lg:block">
+      <div className="hidden border-b border-[#F0F3F7]/[0.09] px-6 pt-5 pb-4 lg:block">
         <div className="flex items-start justify-between gap-2">
           <div>
-            <h1 className="text-lg font-bold tracking-tight text-[#141619]">
+            <h1 className="text-lg font-semibold tracking-tight text-[#F3F5F8]">
               {vehicle.brand} {vehicle.name}
             </h1>
-            <p className="mt-0.5 text-xs text-[#5C636E]">
+            <p className="mt-0.5 text-xs text-[#99A3B2]">
               {vehicle.tagline[language]}
             </p>
           </div>
           <button
             type="button"
             onClick={resetActiveVehicle}
-            className="cursor-pointer rounded-md p-1.5 text-[#5C636E] transition-colors hover:bg-[#F5F6F8] hover:text-[#141619]"
+            className="btn-tactile cursor-pointer rounded-full p-1.5 text-[#99A3B2] hover:bg-[#151920] hover:text-[#F3F5F8]"
             title={t.sidebar.resetVehicle}
           >
             <RotateCcw className="h-4 w-4" />
@@ -131,7 +131,7 @@ export function ConfigSidebar() {
         </div>
 
         {/* Compact step tabs on lg screens where center TopBar tabs are hidden */}
-        <div className="mt-4 grid grid-cols-3 gap-1 rounded-lg bg-[#F5F6F8] p-1 xl:hidden">
+        <div className="mt-4 grid grid-cols-3 gap-1 rounded-full border border-[#F0F3F7]/[0.09] bg-[#0B0D10] p-1 xl:hidden">
           {MOBILE_STEPS.map((step) => {
             const active = activeStep === step
             return (
@@ -139,10 +139,10 @@ export function ConfigSidebar() {
                 key={step}
                 type="button"
                 onClick={() => setActiveStep(step)}
-                className={`cursor-pointer rounded-md py-1.5 text-xs font-medium transition-colors ${
+                className={`btn-tactile cursor-pointer rounded-full py-1.5 text-xs font-medium ${
                   active
-                    ? 'bg-white text-[#141619] shadow-xs'
-                    : 'text-[#5C636E] hover:text-[#141619]'
+                    ? 'bg-[#18C8F0]/[0.16] text-[#18C8F0] ring-1 ring-[#18C8F0]/45'
+                    : 'text-[#99A3B2] hover:text-[#F3F5F8]'
                 }`}
               >
                 {t.steps[step]}
@@ -158,16 +158,16 @@ export function ConfigSidebar() {
         {(activeStep === 'exterior' || activeStep === 'summary') && (
           <div>
             <div className="mb-3">
-              <h2 className="text-base font-semibold text-[#141619]">
+              <h2 className="text-base font-semibold text-[#F3F5F8]">
                 {t.sidebar.exteriorTitle}
               </h2>
-              <p className="text-xs text-[#5C636E]">
+              <p className="text-xs text-[#99A3B2]">
                 {t.sidebar.exteriorSubtitle}
               </p>
             </div>
 
             {/* Finish Filter Segmented Control */}
-            <div className="mb-4 grid grid-cols-4 gap-1 rounded-lg bg-[#F5F6F8] p-1 text-xs font-medium">
+            <div className="mb-4 grid grid-cols-4 gap-1 rounded-full border border-[#F0F3F7]/[0.09] bg-[#0B0D10] p-1 text-xs font-medium">
               {(['all', 'solid', 'metallic', 'matte'] as const).map((finish) => {
                 const active = finishFilter === finish
                 return (
@@ -175,10 +175,10 @@ export function ConfigSidebar() {
                     key={finish}
                     type="button"
                     onClick={() => setFinishFilter(finish)}
-                    className={`cursor-pointer rounded-md py-1.5 transition-colors ${
+                    className={`btn-tactile cursor-pointer rounded-full py-1.5 ${
                       active
-                        ? 'bg-white text-[#141619] shadow-xs'
-                        : 'text-[#5C636E] hover:text-[#141619]'
+                        ? 'bg-[#151920] text-[#F3F5F8] ring-1 ring-[#F0F3F7]/[0.14]'
+                        : 'text-[#99A3B2] hover:text-[#F3F5F8]'
                     }`}
                   >
                     {t.finishes[finish]}
@@ -187,7 +187,7 @@ export function ConfigSidebar() {
               })}
             </div>
 
-            {/* Paint Options List (Toyota-style clean rows with realistic circular swatches) */}
+            {/* Paint Options List */}
             <div className="space-y-2">
               {filteredPaints.map((paint) => {
                 const selected = selection.paintId === paint.id
@@ -196,34 +196,38 @@ export function ConfigSidebar() {
                     key={paint.id}
                     type="button"
                     onClick={() => setPaint(paint.id)}
-                    className={`flex w-full cursor-pointer items-center justify-between rounded-xl border p-3 text-left transition-colors ${
+                    className={`btn-tactile flex w-full cursor-pointer items-center justify-between rounded-xl border p-3 text-left ${
                       selected
-                        ? 'border-[#126AB7] bg-[#126AB7]/[0.03] ring-1 ring-[#126AB7]'
-                        : 'border-[#E6E8EC] bg-white hover:border-[#B8BFC9]'
+                        ? 'border-[#18C8F0] bg-[#18C8F0]/[0.12]'
+                        : 'border-[#F0F3F7]/[0.09] bg-[#151920] hover:border-[#F0F3F7]/[0.22] hover:bg-[#1B2029]'
                     }`}
                   >
                     <div className="flex items-center gap-3">
                       <span
-                        className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-black/15 shadow-inner"
+                        className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 shadow-inner"
                         style={getSwatchStyle(paint.hex, paint.finish)}
                       >
                         {selected && (
-                          <span className="flex h-4 w-4 items-center justify-center rounded-full bg-white/90 text-[#141619] shadow-xs">
+                          <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[#18C8F0] text-[#090B0E] shadow-xs">
                             <Check className="h-3 w-3 stroke-[2.5]" />
                           </span>
                         )}
                       </span>
                       <div>
-                        <div className="text-sm font-medium text-[#141619]">
+                        <div className="text-sm font-medium text-[#F3F5F8]">
                           {paint.name[language]}
                         </div>
-                        <div className="text-xs text-[#5C636E]">
+                        <div className="text-xs text-[#99A3B2]">
                           {t.finishes[paint.finish]}
                         </div>
                       </div>
                     </div>
 
-                    <div className="tabular-nums text-xs font-semibold text-[#141619]">
+                    <div
+                      className={`tabular-nums text-xs font-semibold ${
+                        paint.price === 0 ? 'text-[#99A3B2]' : 'text-[#F4C430]'
+                      }`}
+                    >
                       {paint.price === 0
                         ? t.sidebar.included
                         : `+${formatCurrency(paint.price)}`}
@@ -240,10 +244,10 @@ export function ConfigSidebar() {
           <div>
             <div className="mb-3 flex items-start justify-between gap-2">
               <div>
-                <h2 className="text-base font-semibold text-[#141619]">
+                <h2 className="text-base font-semibold text-[#F3F5F8]">
                   {t.sidebar.interiorTitle}
                 </h2>
-                <p className="text-xs text-[#5C636E]">
+                <p className="text-xs text-[#99A3B2]">
                   {t.sidebar.interiorSubtitle}
                 </p>
               </div>
@@ -251,7 +255,7 @@ export function ConfigSidebar() {
                 <button
                   type="button"
                   onClick={() => setActiveCamera('interior')}
-                  className="flex shrink-0 cursor-pointer items-center gap-1 rounded-lg border border-[#E6E8EC] bg-[#F5F6F8] px-2.5 py-1.5 text-xs font-medium text-[#141619] hover:border-[#141619]"
+                  className="btn-tactile flex shrink-0 cursor-pointer items-center gap-1 rounded-full border border-[#F0F3F7]/[0.2] bg-[#151920] px-3 py-1.5 text-xs font-medium text-[#F3F5F8] hover:border-[#18C8F0] hover:text-[#18C8F0]"
                 >
                   <Eye className="h-3.5 w-3.5" />
                   <span>{t.sidebar.enterCabinHint}</span>
@@ -267,35 +271,38 @@ export function ConfigSidebar() {
                     key={interior.id}
                     type="button"
                     onClick={() => setInterior(interior.id)}
-                    className={`flex w-full cursor-pointer items-center justify-between rounded-xl border p-3.5 text-left transition-colors ${
+                    className={`btn-tactile flex w-full cursor-pointer items-center justify-between rounded-xl border p-3.5 text-left ${
                       selected
-                        ? 'border-[#126AB7] bg-[#126AB7]/[0.03] ring-1 ring-[#126AB7]'
-                        : 'border-[#E6E8EC] bg-white hover:border-[#B8BFC9]'
+                        ? 'border-[#18C8F0] bg-[#18C8F0]/[0.12]'
+                        : 'border-[#F0F3F7]/[0.09] bg-[#151920] hover:border-[#F0F3F7]/[0.22] hover:bg-[#1B2029]'
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      {/* Dual-tone upholstery & accent swatch */}
-                      <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-black/15 shadow-xs">
+                      <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-white/15 shadow-xs">
                         <div
                           className="h-full w-full"
                           style={{ backgroundColor: interior.primaryHex }}
                         />
                         <div
-                          className="absolute right-0 bottom-0 h-4 w-4 rounded-tl-md border-t border-l border-white/40"
+                          className="absolute right-0 bottom-0 h-4 w-4 rounded-tl-md border-t border-l border-white/35"
                           style={{ backgroundColor: interior.accentHex }}
                         />
                       </div>
                       <div>
-                        <div className="text-sm font-medium text-[#141619]">
+                        <div className="text-sm font-medium text-[#F3F5F8]">
                           {interior.name[language]}
                         </div>
-                        <div className="text-xs text-[#5C636E]">
+                        <div className="text-xs text-[#99A3B2]">
                           {t.interiorTypes[interior.materialType]}
                         </div>
                       </div>
                     </div>
 
-                    <div className="tabular-nums text-xs font-semibold text-[#141619]">
+                    <div
+                      className={`tabular-nums text-xs font-semibold ${
+                        interior.price === 0 ? 'text-[#99A3B2]' : 'text-[#F4C430]'
+                      }`}
+                    >
                       {interior.price === 0
                         ? t.sidebar.included
                         : `+${formatCurrency(interior.price)}`}
@@ -312,11 +319,9 @@ export function ConfigSidebar() {
           <div className="space-y-6">
             {/* Wheel Finishes */}
             <section>
-              <div className="mb-2.5">
-                <h2 className="text-sm font-semibold text-[#141619]">
-                  {t.sidebar.wheelsSection}
-                </h2>
-              </div>
+              <h2 className="mb-2.5 text-sm font-semibold text-[#F3F5F8]">
+                {t.sidebar.wheelsSection}
+              </h2>
               <div className="space-y-2">
                 {vehicle.wheels.map((wheel) => {
                   const selected = selection.wheelId === wheel.id
@@ -328,24 +333,33 @@ export function ConfigSidebar() {
                         setWheel(wheel.id)
                         if (activeCamera === 'interior') setActiveCamera('wheels')
                       }}
-                      className={`flex w-full cursor-pointer items-center justify-between rounded-xl border p-3 text-left transition-colors ${
+                      className={`btn-tactile flex w-full cursor-pointer items-center justify-between rounded-xl border p-3 text-left ${
                         selected
-                          ? 'border-[#126AB7] bg-[#126AB7]/[0.03] ring-1 ring-[#126AB7]'
-                          : 'border-[#E6E8EC] bg-white hover:border-[#B8BFC9]'
+                          ? 'border-[#18C8F0] bg-[#18C8F0]/[0.12]'
+                          : 'border-[#F0F3F7]/[0.09] bg-[#151920] hover:border-[#F0F3F7]/[0.22] hover:bg-[#1B2029]'
                       }`}
                     >
                       <div className="flex items-center gap-3">
                         <span
-                          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-[#141619]/20"
-                          style={{
-                            background: `radial-gradient(circle at 35% 30%, rgba(255,255,255,0.5), ${wheel.hex} 65%)`,
-                          }}
-                        />
-                        <div className="text-sm font-medium text-[#141619]">
-                          {wheel.name[language]}
+                          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-[#0B0D10]"
+                          style={{ backgroundColor: wheel.hex }}
+                        >
+                          <span className="h-2.5 w-2.5 rounded-full bg-[#0B0D10]/70" />
+                        </span>
+                        <div>
+                          <div className="text-sm font-medium text-[#F3F5F8]">
+                            {wheel.name[language]}
+                          </div>
+                          <div className="text-xs capitalize text-[#99A3B2]">
+                            {wheel.finish}
+                          </div>
                         </div>
                       </div>
-                      <div className="tabular-nums text-xs font-semibold text-[#141619]">
+                      <div
+                        className={`tabular-nums text-xs font-semibold ${
+                          wheel.price === 0 ? 'text-[#99A3B2]' : 'text-[#F4C430]'
+                        }`}
+                      >
                         {wheel.price === 0
                           ? t.sidebar.included
                           : `+${formatCurrency(wheel.price)}`}
@@ -358,7 +372,7 @@ export function ConfigSidebar() {
 
             {/* Brake Calipers */}
             <section>
-              <h2 className="mb-2.5 text-sm font-semibold text-[#141619]">
+              <h2 className="mb-2.5 text-sm font-semibold text-[#F3F5F8]">
                 {t.sidebar.calipersSection}
               </h2>
               <div className="grid grid-cols-2 gap-2">
@@ -369,21 +383,25 @@ export function ConfigSidebar() {
                       key={caliper.id}
                       type="button"
                       onClick={() => setCaliper(caliper.id)}
-                      className={`flex cursor-pointer items-center gap-2.5 rounded-xl border p-2.5 text-left transition-colors ${
+                      className={`btn-tactile flex cursor-pointer items-center gap-2.5 rounded-xl border p-2.5 text-left ${
                         selected
-                          ? 'border-[#126AB7] bg-[#126AB7]/[0.03] ring-1 ring-[#126AB7]'
-                          : 'border-[#E6E8EC] bg-white hover:border-[#B8BFC9]'
+                          ? 'border-[#18C8F0] bg-[#18C8F0]/[0.12]'
+                          : 'border-[#F0F3F7]/[0.09] bg-[#151920] hover:border-[#F0F3F7]/[0.22] hover:bg-[#1B2029]'
                       }`}
                     >
                       <span
-                        className="h-5 w-5 shrink-0 rounded-full border border-black/15"
+                        className="h-5 w-5 shrink-0 rounded-full border border-white/20"
                         style={{ backgroundColor: caliper.hex }}
                       />
-                      <div className="min-w-0 flex-1">
-                        <div className="truncate text-xs font-medium text-[#141619]">
+                      <div className="min-w-0">
+                        <div className="truncate text-xs font-medium text-[#F3F5F8]">
                           {caliper.name[language]}
                         </div>
-                        <div className="tabular-nums text-[11px] text-[#5C636E]">
+                        <div
+                          className={`tabular-nums text-[11px] ${
+                            caliper.price === 0 ? 'text-[#99A3B2]' : 'text-[#F4C430]'
+                          }`}
+                        >
                           {caliper.price === 0
                             ? t.sidebar.included
                             : `+${formatCurrency(caliper.price)}`}
@@ -395,12 +413,12 @@ export function ConfigSidebar() {
               </div>
             </section>
 
-            {/* Modular Equipment / Accessories */}
+            {/* Modular Accessories */}
             <section>
-              <h2 className="mb-2.5 text-sm font-semibold text-[#141619]">
+              <h2 className="mb-2.5 text-sm font-semibold text-[#F3F5F8]">
                 {t.sidebar.accessoriesSection}
               </h2>
-              <div className="space-y-2">
+              <div className="space-y-2.5">
                 {vehicle.accessories.map((acc) => {
                   const enabled = selection.accessoryIds.includes(acc.id)
                   return (
@@ -408,32 +426,32 @@ export function ConfigSidebar() {
                       key={acc.id}
                       type="button"
                       onClick={() => toggleAccessory(acc.id)}
-                      className={`flex w-full cursor-pointer items-start justify-between gap-3 rounded-xl border p-3.5 text-left transition-colors ${
+                      className={`btn-tactile flex w-full cursor-pointer items-start justify-between gap-3 rounded-xl border p-3.5 text-left ${
                         enabled
-                          ? 'border-[#126AB7] bg-[#126AB7]/[0.03] ring-1 ring-[#126AB7]'
-                          : 'border-[#E6E8EC] bg-white hover:border-[#B8BFC9]'
+                          ? 'border-[#18C8F0] bg-[#18C8F0]/[0.12]'
+                          : 'border-[#F0F3F7]/[0.09] bg-[#151920] hover:border-[#F0F3F7]/[0.22] hover:bg-[#1B2029]'
                       }`}
                     >
                       <div className="flex items-start gap-3">
                         <span
                           className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border transition-colors ${
                             enabled
-                              ? 'border-[#126AB7] bg-[#126AB7] text-white'
-                              : 'border-[#C7CDD6] bg-white'
+                              ? 'border-[#18C8F0] bg-[#18C8F0] text-[#090B0E]'
+                              : 'border-[#F0F3F7]/[0.22] bg-[#0B0D10]'
                           }`}
                         >
                           {enabled && <Check className="h-3.5 w-3.5 stroke-[2.5]" />}
                         </span>
                         <div>
-                          <div className="text-sm font-medium text-[#141619]">
+                          <div className="text-sm font-medium text-[#F3F5F8]">
                             {acc.name[language]}
                           </div>
-                          <p className="mt-0.5 text-xs leading-relaxed text-[#5C636E]">
+                          <p className="mt-0.5 text-xs leading-relaxed text-[#99A3B2]">
                             {acc.description[language]}
                           </p>
                         </div>
                       </div>
-                      <div className="tabular-nums shrink-0 text-xs font-semibold text-[#141619]">
+                      <div className="tabular-nums shrink-0 text-xs font-semibold text-[#F4C430]">
                         +{formatCurrency(acc.price)}
                       </div>
                     </button>
@@ -445,18 +463,18 @@ export function ConfigSidebar() {
         )}
       </div>
 
-      {/* Fixed Commercial Footer Actions + Agency Credit */}
-      <div className="border-t border-[#E6E8EC] bg-white px-5 pt-3.5 pb-2.5 lg:px-6">
+      {/* Fixed Commercial Footer Actions (Amarillo Señal conversion CTA) + Agency Credit */}
+      <div className="border-t border-[#F0F3F7]/[0.09] bg-[#0B0D10] px-5 pt-3.5 pb-2.5 lg:px-6">
         <div className="flex items-center gap-2.5">
           <button
             type="button"
             onClick={handleShare}
-            className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-full border border-[#141619] bg-white px-4 py-2.5 text-xs font-semibold text-[#141619] transition-colors hover:bg-[#F5F6F8]"
+            className="btn-tactile flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-full border border-[#F0F3F7]/[0.22] bg-transparent px-4 py-2.5 text-xs font-medium text-[#F3F5F8] hover:border-[#F0F3F7]/40 hover:bg-[#151920]"
           >
             {copied ? (
               <>
-                <Check className="h-3.5 w-3.5 text-emerald-600" />
-                <span>{t.sidebar.linkCopied}</span>
+                <Check className="h-3.5 w-3.5 text-[#34D399]" />
+                <span className="text-[#34D399]">{t.sidebar.linkCopied}</span>
               </>
             ) : (
               <>
@@ -469,13 +487,13 @@ export function ConfigSidebar() {
           <button
             type="button"
             onClick={() => setSummaryOpen(true)}
-            className="btn-tactile flex flex-1 cursor-pointer items-center justify-center rounded-full bg-[#126AB7] px-4 py-2.5 text-xs font-semibold text-white hover:bg-[#0D5696]"
+            className="btn-tactile flex flex-1 cursor-pointer items-center justify-center rounded-full bg-[#F4C430] px-4 py-2.5 text-xs font-semibold text-[#090B0E] hover:bg-[#FFD44F]"
           >
             {t.sidebar.finishBuild}
           </button>
         </div>
 
-        <div className="mt-2.5 flex items-center justify-center gap-1.5 text-[11px] text-[#6B7280]">
+        <div className="mt-2.5 flex items-center justify-center gap-1.5 text-[11px] text-[#758091]">
           <img
             src="/brand/progress-digital-logo.webp"
             alt="Progress Digital"
@@ -486,7 +504,7 @@ export function ConfigSidebar() {
             href="https://progressdigital.company"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold text-[#111316] underline decoration-[#0ea5e9]/60 underline-offset-2 transition-colors hover:text-[#0284c7]"
+            className="font-semibold text-[#F3F5F8] underline decoration-[#18C8F0]/70 underline-offset-2 transition-colors hover:text-[#18C8F0]"
           >
             progressdigital.company
           </a>

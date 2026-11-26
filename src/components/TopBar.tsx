@@ -38,20 +38,20 @@ export function TopBar() {
   const optionsPrice = totalPrice - vehicle.basePrice
 
   return (
-    <header className="relative z-30 flex h-14 shrink-0 items-center justify-between border-b border-[#E5E7EB] bg-white px-2.5 sm:h-16 sm:px-4 lg:px-6">
-      {/* Left: Porsche Menu Trigger + Progress Digital Wordmark + 3-Vehicle Selector */}
+    <header className="relative z-30 flex h-14 shrink-0 items-center justify-between border-b border-[#F0F3F7]/[0.09] bg-[#0B0D10] px-2.5 text-[#F3F5F8] sm:h-16 sm:px-4 lg:px-6">
+      {/* Left: Menu Trigger + Progress Digital Wordmark + 3-Vehicle Selector */}
       <div className="flex min-w-0 items-center gap-2 sm:gap-3 lg:gap-5">
         <button
           type="button"
           onClick={() => setMenuOpen(true)}
-          className="flex shrink-0 cursor-pointer items-center gap-2 rounded-md px-1.5 py-1.5 text-xs font-medium text-[#111316] transition-colors hover:bg-[#F4F5F7] sm:px-2"
+          className="btn-tactile flex shrink-0 cursor-pointer items-center gap-2 rounded-full px-2 py-1.5 text-xs font-medium text-[#F3F5F8] hover:bg-[#151920] sm:px-2.5"
           aria-label={t.menuLabel}
         >
-          <Menu className="h-4 w-4 stroke-[1.9]" />
+          <Menu className="h-4 w-4 stroke-[1.75]" />
           <span className="hidden sm:inline">{t.menuLabel}</span>
         </button>
 
-        <div className="hidden h-5 w-px bg-[#E5E7EB] sm:block" />
+        <div className="hidden h-5 w-px bg-[#F0F3F7]/[0.09] sm:block" />
 
         <button
           type="button"
@@ -65,21 +65,21 @@ export function TopBar() {
             className="h-7 w-7 shrink-0 object-contain"
           />
           <div>
-            <div className="font-wordmark text-[11px] leading-tight tracking-[0.2em] text-[#111316]">
+            <div className="font-wordmark text-[11px] leading-tight tracking-[0.2em] text-[#F3F5F8]">
               PROGRESS DIGITAL
             </div>
-            <div className="text-[10px] leading-tight tracking-[0.16em] text-[#59606B] uppercase">
+            <div className="text-[10px] leading-tight tracking-[0.16em] text-[#99A3B2]">
               {t.brandSubtitle}
             </div>
           </div>
         </button>
 
-        <div className="hidden h-5 w-px bg-[#E5E7EB] md:block" />
+        <div className="hidden h-5 w-px bg-[#F0F3F7]/[0.09] md:block" />
 
         {/* 3-Vehicle Selector */}
         <nav
           aria-label="Vehicle models"
-          className="flex items-center gap-0.5 rounded-lg bg-[#F4F5F7] p-0.5 sm:gap-1 sm:p-1"
+          className="flex items-center gap-0.5 rounded-full border border-[#F0F3F7]/[0.09] bg-[#151920] p-0.5 sm:gap-1 sm:p-1"
         >
           {VEHICLES.map((v) => {
             const isActive = v.id === activeVehicleId
@@ -88,10 +88,10 @@ export function TopBar() {
                 key={v.id}
                 type="button"
                 onClick={() => setActiveVehicle(v.id)}
-                className={`cursor-pointer whitespace-nowrap rounded-md px-2 py-1 text-[11px] font-medium transition-colors sm:px-2.5 sm:py-1.5 sm:text-xs ${
+                className={`btn-tactile cursor-pointer whitespace-nowrap rounded-full px-2.5 py-1 text-[11px] font-medium sm:px-3 sm:py-1.5 sm:text-xs ${
                   isActive
-                    ? 'bg-white text-[#111316] shadow-xs ring-1 ring-black/6'
-                    : 'text-[#59606B] hover:text-[#111316]'
+                    ? 'bg-[#18C8F0]/[0.16] text-[#18C8F0] ring-1 ring-[#18C8F0]/45'
+                    : 'text-[#99A3B2] hover:text-[#F3F5F8]'
                 }`}
               >
                 <span className="hidden lg:inline">{v.brand} </span>
@@ -108,7 +108,7 @@ export function TopBar() {
         </nav>
       </div>
 
-      {/* Center: Step Navigation */}
+      {/* Center: Step Navigation (Cian Progress Digital active telemetry underline) */}
       <nav
         aria-label="Configuration steps"
         className="hidden h-full items-center gap-1 xl:flex"
@@ -122,13 +122,13 @@ export function TopBar() {
               onClick={() => setActiveStep(step)}
               className={`relative flex h-full cursor-pointer items-center px-4 text-[13px] font-medium transition-colors ${
                 isActive
-                  ? 'text-[#111316]'
-                  : 'text-[#59606B] hover:text-[#111316]'
+                  ? 'text-[#F3F5F8]'
+                  : 'text-[#99A3B2] hover:text-[#F3F5F8]'
               }`}
             >
               {t.steps[step]}
               {isActive && (
-                <span className="absolute right-2 bottom-0 left-2 h-[3px] rounded-t-full bg-[#126AB7]" />
+                <span className="absolute right-2 bottom-0 left-2 h-[2px] rounded-t-full bg-[#18C8F0]" />
               )}
             </button>
           )
@@ -138,18 +138,18 @@ export function TopBar() {
       {/* Right: EN/ES Toggle (sm+) + Dynamic Live Price */}
       <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
         <div
-          className="hidden items-center rounded-lg border border-[#E5E7EB] bg-[#F4F5F7] p-0.5 text-xs font-medium sm:flex"
+          className="hidden items-center rounded-full border border-[#F0F3F7]/[0.12] bg-[#151920] p-0.5 text-xs font-medium sm:flex"
           role="group"
           aria-label="Language selector"
         >
-          <Globe className="ml-1.5 mr-1 hidden h-3.5 w-3.5 text-[#59606B] md:block" />
+          <Globe className="ml-2 mr-1 hidden h-3.5 w-3.5 text-[#758091] md:block" />
           <button
             type="button"
             onClick={() => setLanguage('en')}
-            className={`cursor-pointer rounded-md px-2 py-1 transition-colors ${
+            className={`btn-tactile cursor-pointer rounded-full px-2 py-1 ${
               language === 'en'
-                ? 'bg-white text-[#111316] shadow-xs'
-                : 'text-[#59606B] hover:text-[#111316]'
+                ? 'bg-[#F3F5F8] text-[#090B0E]'
+                : 'text-[#99A3B2] hover:text-[#F3F5F8]'
             }`}
           >
             EN
@@ -157,99 +157,99 @@ export function TopBar() {
           <button
             type="button"
             onClick={() => setLanguage('es')}
-            className={`cursor-pointer rounded-md px-2 py-1 transition-colors ${
+            className={`btn-tactile cursor-pointer rounded-full px-2 py-1 ${
               language === 'es'
-                ? 'bg-white text-[#111316] shadow-xs'
-                : 'text-[#59606B] hover:text-[#111316]'
+                ? 'bg-[#F3F5F8] text-[#090B0E]'
+                : 'text-[#99A3B2] hover:text-[#F3F5F8]'
             }`}
           >
             ES
           </button>
         </div>
 
-        {/* Live Total Price Button */}
+        {/* Live Total Price Button (Amarillo Señal highlight) */}
         <button
           type="button"
           onClick={() => setPriceOpen((prev) => !prev)}
-          className="flex cursor-pointer items-center gap-1 rounded-lg px-1.5 py-1 text-right transition-colors hover:bg-[#F4F5F7] sm:gap-2 sm:px-2.5 sm:py-1.5"
+          className="btn-tactile flex cursor-pointer items-center gap-1 rounded-xl px-1.5 py-1 text-right hover:bg-[#151920] sm:gap-2 sm:px-2.5 sm:py-1.5"
         >
           <div>
-            <div className="tabular-nums text-sm font-semibold leading-tight text-[#111316] sm:text-base">
+            <div className="tabular-nums text-sm font-semibold leading-tight text-[#F4C430] sm:text-base">
               {formatCurrency(totalPrice)}
             </div>
-            <div className="hidden text-[11px] leading-tight text-[#59606B] sm:block">
+            <div className="hidden text-[11px] leading-tight text-[#99A3B2] sm:block">
               {t.topbar.totalAsBuilt}
             </div>
           </div>
           {priceOpen ? (
-            <ChevronUp className="h-3.5 w-3.5 text-[#59606B] sm:h-4 sm:w-4" />
+            <ChevronUp className="h-3.5 w-3.5 text-[#99A3B2] sm:h-4 sm:w-4" />
           ) : (
-            <ChevronDown className="h-3.5 w-3.5 text-[#59606B] sm:h-4 sm:w-4" />
+            <ChevronDown className="h-3.5 w-3.5 text-[#99A3B2] sm:h-4 sm:w-4" />
           )}
         </button>
       </div>
 
       {/* Expandable Price & Specs Breakdown Popover */}
       {priceOpen && (
-        <div className="absolute top-16 right-4 z-40 mt-2 w-80 rounded-xl border border-[#E5E7EB] bg-white p-4 shadow-xl">
+        <div className="absolute top-16 right-4 z-40 mt-2 w-80 rounded-2xl border border-[#F0F3F7]/[0.14] bg-[#101318] p-4 text-[#F3F5F8] shadow-2xl">
           <div className="mb-3 flex items-center justify-between">
             <div>
-              <div className="text-sm font-semibold text-[#111316]">
+              <div className="text-sm font-semibold text-[#F3F5F8]">
                 {vehicle.year} {vehicle.brand} {vehicle.name}
               </div>
-              <div className="text-xs text-[#59606B]">
+              <div className="text-xs text-[#99A3B2]">
                 {vehicle.category[language]}
               </div>
             </div>
             <button
               type="button"
               onClick={() => setPriceOpen(false)}
-              className="cursor-pointer rounded-md p-1 text-[#59606B] hover:bg-[#F4F5F7] hover:text-[#111316]"
+              className="cursor-pointer rounded-full p-1 text-[#99A3B2] hover:bg-[#151920] hover:text-[#F3F5F8]"
               aria-label={t.topbar.closeBreakdown}
             >
               <X className="h-4 w-4" />
             </button>
           </div>
 
-          <div className="space-y-1.5 border-y border-[#E5E7EB] py-3 text-xs">
-            <div className="flex justify-between text-[#59606B]">
+          <div className="space-y-1.5 border-y border-[#F0F3F7]/[0.09] py-3 text-xs">
+            <div className="flex justify-between text-[#99A3B2]">
               <span>{t.topbar.baseVehicle}</span>
-              <span className="tabular-nums font-medium text-[#111316]">
+              <span className="tabular-nums font-medium text-[#F3F5F8]">
                 {formatCurrency(vehicle.basePrice)}
               </span>
             </div>
-            <div className="flex justify-between text-[#59606B]">
+            <div className="flex justify-between text-[#99A3B2]">
               <span>{t.topbar.selectedOptions}</span>
-              <span className="tabular-nums font-medium text-[#111316]">
+              <span className="tabular-nums font-medium text-[#18C8F0]">
                 +{formatCurrency(optionsPrice)}
               </span>
             </div>
-            <div className="flex justify-between pt-1.5 text-sm font-semibold text-[#111316]">
+            <div className="flex justify-between pt-1.5 text-sm font-semibold text-[#F3F5F8]">
               <span>{t.topbar.totalAsBuilt}</span>
-              <span className="tabular-nums">{formatCurrency(totalPrice)}</span>
+              <span className="tabular-nums text-[#F4C430]">{formatCurrency(totalPrice)}</span>
             </div>
           </div>
 
           <div className="mt-3">
-            <div className="mb-2 text-xs font-medium text-[#59606B]">
+            <div className="mb-2 text-xs font-medium text-[#99A3B2]">
               {t.topbar.vehicleSpecs}
             </div>
             <div className="grid grid-cols-2 gap-2 text-xs">
-              <div className="rounded-lg bg-[#F4F5F7] px-2.5 py-2">
-                <div className="text-[11px] text-[#59606B]">Power</div>
-                <div className="font-semibold text-[#111316]">{vehicle.specs.power}</div>
+              <div className="rounded-xl border border-[#F0F3F7]/[0.07] bg-[#151920] px-2.5 py-2">
+                <div className="text-[11px] text-[#758091]">Power</div>
+                <div className="font-semibold text-[#F3F5F8]">{vehicle.specs.power}</div>
               </div>
-              <div className="rounded-lg bg-[#F4F5F7] px-2.5 py-2">
-                <div className="text-[11px] text-[#59606B]">Weight</div>
-                <div className="font-semibold text-[#111316]">{vehicle.specs.weight}</div>
+              <div className="rounded-xl border border-[#F0F3F7]/[0.07] bg-[#151920] px-2.5 py-2">
+                <div className="text-[11px] text-[#758091]">Weight</div>
+                <div className="font-semibold text-[#F3F5F8]">{vehicle.specs.weight}</div>
               </div>
-              <div className="rounded-lg bg-[#F4F5F7] px-2.5 py-2">
-                <div className="text-[11px] text-[#59606B]">Drivetrain</div>
-                <div className="font-semibold text-[#111316]">{vehicle.specs.drivetrain}</div>
+              <div className="rounded-xl border border-[#F0F3F7]/[0.07] bg-[#151920] px-2.5 py-2">
+                <div className="text-[11px] text-[#758091]">Drivetrain</div>
+                <div className="font-semibold text-[#F3F5F8]">{vehicle.specs.drivetrain}</div>
               </div>
-              <div className="rounded-lg bg-[#F4F5F7] px-2.5 py-2">
-                <div className="text-[11px] text-[#59606B]">Engine</div>
-                <div className="truncate font-semibold text-[#111316]">
+              <div className="rounded-xl border border-[#F0F3F7]/[0.07] bg-[#151920] px-2.5 py-2">
+                <div className="text-[11px] text-[#758091]">Engine</div>
+                <div className="truncate font-semibold text-[#F3F5F8]">
                   {vehicle.specs.layout[language]}
                 </div>
               </div>

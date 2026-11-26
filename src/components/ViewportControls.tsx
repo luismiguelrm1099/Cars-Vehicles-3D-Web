@@ -115,7 +115,7 @@ export function ViewportControls({ onTakeSnapshot }: ViewportControlsProps) {
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className={`hidden cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-2 text-xs font-medium transition-colors sm:flex ${glassPillClass} hover:border-[#126AB7]`}
+            className={`hidden cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-2 text-xs font-medium transition-colors sm:flex ${glassPillClass} hover:border-[#18C8F0]`}
             title={t.viewport.loadLocalGlb}
           >
             <Upload className="h-3.5 w-3.5" />
@@ -126,7 +126,7 @@ export function ViewportControls({ onTakeSnapshot }: ViewportControlsProps) {
             <button
               type="button"
               onClick={() => setLocalGlbUrl(activeVehicleId, null)}
-              className="flex cursor-pointer items-center gap-1 rounded-xl border border-[#126AB7]/40 bg-[#126AB7] px-2.5 py-2 text-xs font-medium text-white shadow-sm hover:bg-[#0D5696]"
+              className="btn-tactile flex cursor-pointer items-center gap-1 rounded-xl border border-[#18C8F0]/50 bg-[#18C8F0] px-2.5 py-2 text-xs font-semibold text-[#090B0E] shadow-sm hover:bg-[#3BF4C4]"
               title="Revert to default model"
             >
               <X className="h-3.5 w-3.5" />
@@ -140,7 +140,7 @@ export function ViewportControls({ onTakeSnapshot }: ViewportControlsProps) {
             onClick={() => setInspectorEnabled(!inspectorEnabled)}
             className={`hidden cursor-pointer items-center gap-1.5 rounded-xl border px-2.5 py-2 text-xs font-medium transition-colors sm:flex ${
               inspectorEnabled
-                ? 'border-[#126AB7] bg-[#126AB7] text-white'
+                ? 'border-[#18C8F0] bg-[#18C8F0] font-semibold text-[#090B0E]'
                 : glassPillClass
             }`}
             title={t.viewport.inspectorMode}
@@ -156,9 +156,7 @@ export function ViewportControls({ onTakeSnapshot }: ViewportControlsProps) {
             disabled={isInterior}
             className={`flex cursor-pointer items-center gap-1.5 rounded-xl border p-2 text-xs font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-40 sm:px-2.5 ${
               autoRotate
-                ? isLightBg
-                  ? 'border-[#141619] bg-[#141619] text-white'
-                  : 'border-white bg-white text-[#141619]'
+                ? 'border-[#F4C430] bg-[#F4C430] font-semibold text-[#090B0E]'
                 : glassPillClass
             }`}
             title={t.viewport.autoRotate}
@@ -181,30 +179,30 @@ export function ViewportControls({ onTakeSnapshot }: ViewportControlsProps) {
 
       {/* Optional Material Inspector Readout */}
       {inspectorEnabled && (
-        <div className="pointer-events-auto self-end rounded-xl border border-white/15 bg-[#141619]/92 p-3 text-xs text-white shadow-xl backdrop-blur-md">
+        <div className="pointer-events-auto self-end rounded-xl border border-[#F0F3F7]/[0.14] bg-[#0B0D10]/94 p-3 text-xs text-[#F3F5F8] shadow-xl backdrop-blur-md">
           <div className="mb-1.5 flex items-center justify-between gap-4">
-            <span className="font-semibold text-white">3D Mesh & Material Inspector</span>
+            <span className="font-semibold text-[#18C8F0]">3D Mesh & Material Inspector</span>
             <button
               type="button"
               onClick={() => {
                 setInspectorEnabled(false)
                 setInspectedMesh(null)
               }}
-              className="cursor-pointer text-white/60 hover:text-white"
+              className="cursor-pointer text-[#99A3B2] hover:text-[#F3F5F8]"
             >
               <X className="h-3.5 w-3.5" />
             </button>
           </div>
           {inspectedMesh ? (
-            <div className="space-y-1 font-mono text-[11px] text-white/85">
+            <div className="space-y-1 font-mono text-[11px] text-[#F3F5F8]">
               <div>
-                <span className="text-white/50">mesh:</span> {inspectedMesh.meshName}
+                <span className="text-[#758091]">mesh:</span> {inspectedMesh.meshName}
               </div>
               <div>
-                <span className="text-white/50">material:</span> {inspectedMesh.materialName}
+                <span className="text-[#758091]">material:</span> {inspectedMesh.materialName}
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-white/50">color:</span>
+                <span className="text-[#758091]">color:</span>
                 <span>{inspectedMesh.colorHex}</span>
                 {inspectedMesh.colorHex.startsWith('#') && (
                   <span
@@ -215,36 +213,36 @@ export function ViewportControls({ onTakeSnapshot }: ViewportControlsProps) {
               </div>
             </div>
           ) : (
-            <div className="text-[11px] text-white/70">
+            <div className="text-[11px] text-[#99A3B2]">
               Click any part of the vehicle to inspect its mesh & material name.
             </div>
           )}
         </div>
       )}
 
-      {/* Bottom Row: Toyota-style Exterior/Interior Toggle + Camera Angle Pills */}
+      {/* Bottom Row: Exterior/Interior Toggle + Camera Angle Pills */}
       <div className="flex items-end justify-between gap-2">
-        {/* Bottom-Left: Exterior <-> Interior Preview Card (compact pill on mobile, full card on sm+) */}
+        {/* Bottom-Left: Exterior <-> Interior Preview Card */}
         <button
           type="button"
           onClick={toggleInteriorView}
           className={`pointer-events-auto group flex shrink-0 cursor-pointer flex-col overflow-hidden rounded-xl border text-left transition-transform duration-200 sm:w-36 ${
             isLightBg
               ? 'border-[#D5D9E0] bg-white shadow-md'
-              : 'border-white/20 bg-[#181b20]/90 shadow-xl backdrop-blur-md'
+              : 'border-[#F0F3F7]/[0.16] bg-[#101318]/92 shadow-xl backdrop-blur-md'
           }`}
         >
           <div
             className={`relative hidden h-16 w-full items-center justify-center overflow-hidden sm:flex ${
               isInterior
                 ? 'bg-gradient-to-br from-[#e2e6ec] to-[#f7f8fa]'
-                : 'bg-gradient-to-br from-[#1b1f26] to-[#2c333f]'
+                : 'bg-gradient-to-br from-[#101318] to-[#1B2029]'
             }`}
           >
             {isInterior ? (
               <svg
                 viewBox="0 0 120 46"
-                className="h-9 w-24 text-[#141619]"
+                className="h-9 w-24 text-[#0B0D10]"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2.2"
@@ -258,7 +256,7 @@ export function ViewportControls({ onTakeSnapshot }: ViewportControlsProps) {
             ) : (
               <svg
                 viewBox="0 0 120 48"
-                className="h-10 w-24 text-white/90"
+                className="h-10 w-24 text-[#F3F5F8]/90"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2.2"
@@ -272,13 +270,13 @@ export function ViewportControls({ onTakeSnapshot }: ViewportControlsProps) {
                 <rect x="68" y="21" width="22" height="14" rx="2" strokeOpacity="0.8" />
               </svg>
             )}
-            <span className="absolute top-1.5 right-1.5 rounded-full bg-[#126AB7] px-1.5 py-0.5 text-[9px] font-semibold text-white">
+            <span className="absolute top-1.5 right-1.5 rounded-full bg-[#18C8F0] px-1.5 py-0.5 text-[9px] font-bold text-[#090B0E]">
               360°
             </span>
           </div>
           <div
             className={`flex items-center justify-between px-2.5 py-2 text-[11px] font-semibold sm:py-1.5 ${
-              isLightBg ? 'text-[#141619]' : 'text-white'
+              isLightBg ? 'text-[#0B0D10]' : 'text-[#F3F5F8]'
             }`}
           >
             <span>
@@ -289,10 +287,10 @@ export function ViewportControls({ onTakeSnapshot }: ViewportControlsProps) {
           </div>
         </button>
 
-        {/* Bottom-Center: Camera Angle Pills (horizontally scrollable on narrow mobile) */}
+        {/* Bottom-Center: Camera Angle Pills */}
         <div className="flex min-w-0 flex-col items-end gap-1.5 sm:items-center">
           <div
-            className={`pointer-events-auto flex max-w-full items-center gap-0.5 overflow-x-auto rounded-xl border p-1 sm:gap-1 ${glassPillClass}`}
+            className={`pointer-events-auto flex max-w-full items-center gap-0.5 overflow-x-auto rounded-full border p-1 sm:gap-1 ${glassPillClass}`}
             role="group"
             aria-label="Camera angles"
           >
@@ -303,12 +301,12 @@ export function ViewportControls({ onTakeSnapshot }: ViewportControlsProps) {
                   key={preset}
                   type="button"
                   onClick={() => setActiveCamera(preset)}
-                  className={`cursor-pointer whitespace-nowrap rounded-lg px-2 py-1 text-[11px] font-medium transition-colors sm:px-2.5 sm:py-1.5 sm:text-xs ${
+                  className={`btn-tactile cursor-pointer whitespace-nowrap rounded-full px-2.5 py-1 text-[11px] font-medium sm:px-3 sm:py-1.5 sm:text-xs ${
                     active
-                      ? 'bg-[#126AB7] text-white'
+                      ? 'bg-[#18C8F0] font-semibold text-[#090B0E]'
                       : isLightBg
-                        ? 'text-[#5C636E] hover:bg-[#F5F6F8] hover:text-[#141619]'
-                        : 'text-white/75 hover:bg-white/10 hover:text-white'
+                        ? 'text-[#5C636E] hover:bg-[#F5F6F8] hover:text-[#0B0D10]'
+                        : 'text-[#99A3B2] hover:bg-[#1B2029] hover:text-[#F3F5F8]'
                   }`}
                 >
                   {t.cameras[preset]}

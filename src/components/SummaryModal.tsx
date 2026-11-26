@@ -67,24 +67,24 @@ export function SummaryModal({ captureSnapshot }: SummaryModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/55 p-4 backdrop-blur-xs"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#0B0D10]/75 p-4 backdrop-blur-xs"
       role="dialog"
       aria-modal="true"
       aria-labelledby="summary-title"
     >
-      <div className="flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
+      <div className="flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-[#F0F3F7]/[0.14] bg-[#101318] text-[#F3F5F8] shadow-2xl">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-[#E6E8EC] px-6 py-4">
+        <div className="flex items-center justify-between border-b border-[#F0F3F7]/[0.09] px-6 py-4">
           <div>
-            <h2 id="summary-title" className="text-lg font-bold text-[#141619]">
+            <h2 id="summary-title" className="text-lg font-semibold text-[#F3F5F8]">
               {t.summary.title}
             </h2>
-            <p className="text-xs text-[#5C636E]">{t.summary.subtitle}</p>
+            <p className="text-xs text-[#99A3B2]">{t.summary.subtitle}</p>
           </div>
           <button
             type="button"
             onClick={() => setSummaryOpen(false)}
-            className="cursor-pointer rounded-lg p-1.5 text-[#5C636E] hover:bg-[#F5F6F8] hover:text-[#141619]"
+            className="btn-tactile cursor-pointer rounded-full p-1.5 text-[#99A3B2] hover:bg-[#151920] hover:text-[#F3F5F8]"
             aria-label={t.summary.backToEdit}
           >
             <X className="h-5 w-5" />
@@ -95,7 +95,7 @@ export function SummaryModal({ captureSnapshot }: SummaryModalProps) {
         <div className="config-scroll grid flex-1 gap-6 overflow-y-auto p-6 md:grid-cols-2">
           {/* Left: Captured Live Preview + Specs */}
           <div className="space-y-4">
-            <div className="overflow-hidden rounded-xl border border-[#E6E8EC] bg-[#141619]">
+            <div className="overflow-hidden rounded-xl border border-[#F0F3F7]/[0.09] bg-[#0B0D10]">
               {snapshotUrl ? (
                 <img
                   src={snapshotUrl}
@@ -103,23 +103,23 @@ export function SummaryModal({ captureSnapshot }: SummaryModalProps) {
                   className="aspect-[16/10] w-full object-cover"
                 />
               ) : (
-                <div className="flex aspect-[16/10] items-center justify-center text-xs text-white/60">
+                <div className="flex aspect-[16/10] items-center justify-center text-xs text-[#758091]">
                   Preview captured on render
                 </div>
               )}
             </div>
 
             <div>
-              <div className="text-base font-bold text-[#141619]">
+              <div className="text-base font-semibold text-[#F3F5F8]">
                 {vehicle.year} {vehicle.brand} {vehicle.name}
               </div>
-              <div className="mt-0.5 text-xs text-[#5C636E]">
+              <div className="mt-0.5 text-xs text-[#99A3B2]">
                 {vehicle.specs.power} · {vehicle.specs.weight} · {vehicle.specs.drivetrain}
               </div>
             </div>
 
             {/* Branded agency & 3D model attribution footer */}
-            <div className="rounded-xl bg-[#F5F6F8] p-3 text-[11px] leading-relaxed text-[#5C636E]">
+            <div className="rounded-xl border border-[#F0F3F7]/[0.09] bg-[#151920] p-3 text-[11px] leading-relaxed text-[#99A3B2]">
               <div className="mb-1.5 flex items-center gap-2">
                 <img
                   src="/brand/progress-digital-logo.webp"
@@ -132,18 +132,18 @@ export function SummaryModal({ captureSnapshot }: SummaryModalProps) {
                     href="https://progressdigital.company"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-semibold text-[#141619] underline decoration-[#0ea5e9]/60 underline-offset-2 hover:text-[#0284c7]"
+                    className="font-semibold text-[#F3F5F8] underline decoration-[#18C8F0]/70 underline-offset-2 hover:text-[#18C8F0]"
                   >
                     progressdigital.company
                   </a>
                 </span>
               </div>
-              <p>{t.summary.disclaimer}</p>
+              <p className="text-[#758091]">{t.summary.disclaimer}</p>
               <a
                 href={vehicle.attribution.sourceUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-1.5 inline-flex items-center gap-1 font-medium text-[#141619] hover:text-[#126AB7]"
+                className="mt-1.5 inline-flex items-center gap-1 font-medium text-[#F3F5F8] hover:text-[#18C8F0]"
               >
                 <span>
                   {t.summary.modelCredit}: {vehicle.attribution.modelTitle} by{' '}
@@ -157,19 +157,19 @@ export function SummaryModal({ captureSnapshot }: SummaryModalProps) {
           {/* Right: Itemized Commercial Price Sheet */}
           <div className="flex flex-col justify-between">
             <div className="space-y-3 text-sm">
-              <div className="flex items-center justify-between border-b border-[#E6E8EC] pb-2.5">
-                <span className="text-[#5C636E]">{t.summary.basePrice}</span>
-                <span className="tabular-nums font-semibold text-[#141619]">
+              <div className="flex items-center justify-between border-b border-[#F0F3F7]/[0.09] pb-2.5">
+                <span className="text-[#99A3B2]">{t.summary.basePrice}</span>
+                <span className="tabular-nums font-semibold text-[#F3F5F8]">
                   {formatCurrency(vehicle.basePrice)}
                 </span>
               </div>
 
-              <div className="flex items-center justify-between border-b border-[#E6E8EC] pb-2.5">
+              <div className="flex items-center justify-between border-b border-[#F0F3F7]/[0.09] pb-2.5">
                 <div>
-                  <div className="text-xs text-[#5C636E]">{t.summary.exteriorPaint}</div>
-                  <div className="flex items-center gap-2 font-medium text-[#141619]">
+                  <div className="text-xs text-[#758091]">{t.summary.exteriorPaint}</div>
+                  <div className="flex items-center gap-2 font-medium text-[#F3F5F8]">
                     <span
-                      className="inline-block h-3 w-3 rounded-full border border-black/15"
+                      className="inline-block h-3 w-3 rounded-full border border-white/25"
                       style={{ backgroundColor: paint.hex }}
                     />
                     <span>
@@ -177,55 +177,55 @@ export function SummaryModal({ captureSnapshot }: SummaryModalProps) {
                     </span>
                   </div>
                 </div>
-                <span className="tabular-nums text-xs font-semibold text-[#141619]">
+                <span className="tabular-nums text-xs font-semibold text-[#F4C430]">
                   {paint.price === 0 ? t.sidebar.included : `+${formatCurrency(paint.price)}`}
                 </span>
               </div>
 
-              <div className="flex items-center justify-between border-b border-[#E6E8EC] pb-2.5">
+              <div className="flex items-center justify-between border-b border-[#F0F3F7]/[0.09] pb-2.5">
                 <div>
-                  <div className="text-xs text-[#5C636E]">{t.summary.interiorTrim}</div>
-                  <div className="font-medium text-[#141619]">{interior.name[language]}</div>
+                  <div className="text-xs text-[#758091]">{t.summary.interiorTrim}</div>
+                  <div className="font-medium text-[#F3F5F8]">{interior.name[language]}</div>
                 </div>
-                <span className="tabular-nums text-xs font-semibold text-[#141619]">
+                <span className="tabular-nums text-xs font-semibold text-[#F4C430]">
                   {interior.price === 0
                     ? t.sidebar.included
                     : `+${formatCurrency(interior.price)}`}
                 </span>
               </div>
 
-              <div className="flex items-center justify-between border-b border-[#E6E8EC] pb-2.5">
+              <div className="flex items-center justify-between border-b border-[#F0F3F7]/[0.09] pb-2.5">
                 <div>
-                  <div className="text-xs text-[#5C636E]">{t.summary.wheels}</div>
-                  <div className="font-medium text-[#141619]">{wheel.name[language]}</div>
+                  <div className="text-xs text-[#758091]">{t.summary.wheels}</div>
+                  <div className="font-medium text-[#F3F5F8]">{wheel.name[language]}</div>
                 </div>
-                <span className="tabular-nums text-xs font-semibold text-[#141619]">
+                <span className="tabular-nums text-xs font-semibold text-[#F4C430]">
                   {wheel.price === 0 ? t.sidebar.included : `+${formatCurrency(wheel.price)}`}
                 </span>
               </div>
 
-              <div className="flex items-center justify-between border-b border-[#E6E8EC] pb-2.5">
+              <div className="flex items-center justify-between border-b border-[#F0F3F7]/[0.09] pb-2.5">
                 <div>
-                  <div className="text-xs text-[#5C636E]">{t.summary.brakeCalipers}</div>
-                  <div className="font-medium text-[#141619]">{caliper.name[language]}</div>
+                  <div className="text-xs text-[#758091]">{t.summary.brakeCalipers}</div>
+                  <div className="font-medium text-[#F3F5F8]">{caliper.name[language]}</div>
                 </div>
-                <span className="tabular-nums text-xs font-semibold text-[#141619]">
+                <span className="tabular-nums text-xs font-semibold text-[#F4C430]">
                   {caliper.price === 0
                     ? t.sidebar.included
                     : `+${formatCurrency(caliper.price)}`}
                 </span>
               </div>
 
-              <div className="border-b border-[#E6E8EC] pb-2.5">
-                <div className="mb-1 text-xs text-[#5C636E]">{t.summary.accessories}</div>
+              <div className="border-b border-[#F0F3F7]/[0.09] pb-2.5">
+                <div className="mb-1 text-xs text-[#758091]">{t.summary.accessories}</div>
                 {enabledAccessories.length === 0 ? (
-                  <div className="text-xs text-[#5C636E]">{t.summary.noAccessories}</div>
+                  <div className="text-xs text-[#758091]">{t.summary.noAccessories}</div>
                 ) : (
                   <div className="space-y-1">
                     {enabledAccessories.map((acc) => (
                       <div key={acc.id} className="flex items-center justify-between text-xs">
-                        <span className="font-medium text-[#141619]">{acc.name[language]}</span>
-                        <span className="tabular-nums font-semibold text-[#141619]">
+                        <span className="font-medium text-[#F3F5F8]">{acc.name[language]}</span>
+                        <span className="tabular-nums font-semibold text-[#F4C430]">
                           +{formatCurrency(acc.price)}
                         </span>
                       </div>
@@ -235,10 +235,10 @@ export function SummaryModal({ captureSnapshot }: SummaryModalProps) {
               </div>
 
               <div className="flex items-baseline justify-between pt-2">
-                <span className="text-sm font-semibold text-[#141619]">
+                <span className="text-sm font-semibold text-[#F3F5F8]">
                   {t.summary.totalEstimated}
                 </span>
-                <span className="tabular-nums text-xl font-bold text-[#141619]">
+                <span className="tabular-nums text-xl font-semibold text-[#F4C430]">
                   {formatCurrency(totalPrice)}
                 </span>
               </div>
@@ -247,11 +247,11 @@ export function SummaryModal({ captureSnapshot }: SummaryModalProps) {
         </div>
 
         {/* Footer Actions */}
-        <div className="flex flex-wrap items-center justify-between gap-2 border-t border-[#E6E8EC] bg-[#F5F6F8] px-6 py-4">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-t border-[#F0F3F7]/[0.09] bg-[#0B0D10] px-6 py-4">
           <button
             type="button"
             onClick={() => setSummaryOpen(false)}
-            className="cursor-pointer rounded-full px-4 py-2 text-xs font-semibold text-[#5C636E] hover:text-[#141619]"
+            className="btn-tactile cursor-pointer rounded-full px-4 py-2 text-xs font-medium text-[#99A3B2] hover:text-[#F3F5F8]"
           >
             {t.summary.backToEdit}
           </button>
@@ -260,12 +260,12 @@ export function SummaryModal({ captureSnapshot }: SummaryModalProps) {
             <button
               type="button"
               onClick={handleCopyLink}
-              className="flex cursor-pointer items-center gap-1.5 rounded-full border border-[#141619] bg-white px-4 py-2 text-xs font-semibold text-[#141619] hover:bg-[#F5F6F8]"
+              className="btn-tactile flex cursor-pointer items-center gap-1.5 rounded-full border border-[#F0F3F7]/[0.22] bg-transparent px-4 py-2 text-xs font-medium text-[#F3F5F8] hover:border-[#F0F3F7]/40 hover:bg-[#151920]"
             >
               {copied ? (
                 <>
-                  <Check className="h-3.5 w-3.5 text-emerald-600" />
-                  <span>{t.sidebar.linkCopied}</span>
+                  <Check className="h-3.5 w-3.5 text-[#34D399]" />
+                  <span className="text-[#34D399]">{t.sidebar.linkCopied}</span>
                 </>
               ) : (
                 <>
@@ -278,7 +278,7 @@ export function SummaryModal({ captureSnapshot }: SummaryModalProps) {
             <button
               type="button"
               onClick={handleDownload}
-              className="flex cursor-pointer items-center gap-1.5 rounded-full bg-[#126AB7] px-5 py-2 text-xs font-semibold text-white hover:bg-[#0D5696]"
+              className="btn-tactile flex cursor-pointer items-center gap-1.5 rounded-full bg-[#F4C430] px-5 py-2 text-xs font-semibold text-[#090B0E] hover:bg-[#FFD44F]"
             >
               <Download className="h-3.5 w-3.5" />
               <span>{t.summary.downloadImage}</span>
