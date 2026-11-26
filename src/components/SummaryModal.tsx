@@ -143,7 +143,7 @@ export function SummaryModal({ captureSnapshot }: SummaryModalProps) {
                 href={vehicle.attribution.sourceUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-1.5 inline-flex items-center gap-1 font-medium text-[#141619] hover:text-[#C8102E]"
+                className="mt-1.5 inline-flex items-center gap-1 font-medium text-[#141619] hover:text-[#D83A16]"
               >
                 <span>
                   {t.summary.modelCredit}: {vehicle.attribution.modelTitle} by{' '}
@@ -278,7 +278,7 @@ export function SummaryModal({ captureSnapshot }: SummaryModalProps) {
             <button
               type="button"
               onClick={handleDownload}
-              className="flex cursor-pointer items-center gap-1.5 rounded-full bg-[#C8102E] px-5 py-2 text-xs font-semibold text-white hover:bg-[#a90d26]"
+              className="flex cursor-pointer items-center gap-1.5 rounded-full bg-[#D83A16] px-5 py-2 text-xs font-semibold text-white hover:bg-[#BF3010]"
             >
               <Download className="h-3.5 w-3.5" />
               <span>{t.summary.downloadImage}</span>

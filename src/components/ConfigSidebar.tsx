@@ -196,9 +196,9 @@ export function ConfigSidebar() {
                     key={paint.id}
                     type="button"
                     onClick={() => setPaint(paint.id)}
-                    className={`flex w-full cursor-pointer items-center justify-between rounded-xl border p-3 text-left transition-all ${
+                    className={`flex w-full cursor-pointer items-center justify-between rounded-xl border p-3 text-left transition-colors ${
                       selected
-                        ? 'border-[#C8102E] bg-[#C8102E]/[0.03] ring-1 ring-[#C8102E]'
+                        ? 'border-[#D83A16] bg-[#D83A16]/[0.03] ring-1 ring-[#D83A16]'
                         : 'border-[#E6E8EC] bg-white hover:border-[#B8BFC9]'
                     }`}
                   >
@@ -267,9 +267,9 @@ export function ConfigSidebar() {
                     key={interior.id}
                     type="button"
                     onClick={() => setInterior(interior.id)}
-                    className={`flex w-full cursor-pointer items-center justify-between rounded-xl border p-3.5 text-left transition-all ${
+                    className={`flex w-full cursor-pointer items-center justify-between rounded-xl border p-3.5 text-left transition-colors ${
                       selected
-                        ? 'border-[#C8102E] bg-[#C8102E]/[0.03] ring-1 ring-[#C8102E]'
+                        ? 'border-[#D83A16] bg-[#D83A16]/[0.03] ring-1 ring-[#D83A16]'
                         : 'border-[#E6E8EC] bg-white hover:border-[#B8BFC9]'
                     }`}
                   >
@@ -328,9 +328,9 @@ export function ConfigSidebar() {
                         setWheel(wheel.id)
                         if (activeCamera === 'interior') setActiveCamera('wheels')
                       }}
-                      className={`flex w-full cursor-pointer items-center justify-between rounded-xl border p-3 text-left transition-all ${
+                      className={`flex w-full cursor-pointer items-center justify-between rounded-xl border p-3 text-left transition-colors ${
                         selected
-                          ? 'border-[#C8102E] bg-[#C8102E]/[0.03] ring-1 ring-[#C8102E]'
+                          ? 'border-[#D83A16] bg-[#D83A16]/[0.03] ring-1 ring-[#D83A16]'
                           : 'border-[#E6E8EC] bg-white hover:border-[#B8BFC9]'
                       }`}
                     >
@@ -369,9 +369,9 @@ export function ConfigSidebar() {
                       key={caliper.id}
                       type="button"
                       onClick={() => setCaliper(caliper.id)}
-                      className={`flex cursor-pointer items-center gap-2.5 rounded-xl border p-2.5 text-left transition-all ${
+                      className={`flex cursor-pointer items-center gap-2.5 rounded-xl border p-2.5 text-left transition-colors ${
                         selected
-                          ? 'border-[#C8102E] bg-[#C8102E]/[0.03] ring-1 ring-[#C8102E]'
+                          ? 'border-[#D83A16] bg-[#D83A16]/[0.03] ring-1 ring-[#D83A16]'
                           : 'border-[#E6E8EC] bg-white hover:border-[#B8BFC9]'
                       }`}
                     >
@@ -408,9 +408,9 @@ export function ConfigSidebar() {
                       key={acc.id}
                       type="button"
                       onClick={() => toggleAccessory(acc.id)}
-                      className={`flex w-full cursor-pointer items-start justify-between gap-3 rounded-xl border p-3.5 text-left transition-all ${
+                      className={`flex w-full cursor-pointer items-start justify-between gap-3 rounded-xl border p-3.5 text-left transition-colors ${
                         enabled
-                          ? 'border-[#C8102E] bg-[#C8102E]/[0.03] ring-1 ring-[#C8102E]'
+                          ? 'border-[#D83A16] bg-[#D83A16]/[0.03] ring-1 ring-[#D83A16]'
                           : 'border-[#E6E8EC] bg-white hover:border-[#B8BFC9]'
                       }`}
                     >
@@ -418,7 +418,7 @@ export function ConfigSidebar() {
                         <span
                           className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border transition-colors ${
                             enabled
-                              ? 'border-[#C8102E] bg-[#C8102E] text-white'
+                              ? 'border-[#D83A16] bg-[#D83A16] text-white'
                               : 'border-[#C7CDD6] bg-white'
                           }`}
                         >
@@ -469,7 +469,7 @@ export function ConfigSidebar() {
           <button
             type="button"
             onClick={() => setSummaryOpen(true)}
-            className="flex flex-1 cursor-pointer items-center justify-center rounded-full bg-[#C8102E] px-4 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-[#a90d26]"
+            className="btn-tactile flex flex-1 cursor-pointer items-center justify-center rounded-full bg-[#D83A16] px-4 py-2.5 text-xs font-semibold text-white hover:bg-[#BF3010]"
           >
             {t.sidebar.finishBuild}
           </button>

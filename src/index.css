@@ -10,19 +10,33 @@
     --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
     --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 
-    /* Automotive editorial color tokens */
+    /* Nocturnal Obsidian · Champagne Gold · Signal Vermilion palette */
+    --canvas-obsidian: #08090b;
+    --surface-basalt: #0d0f13;
+    --surface-card: #13161c;
+    --surface-raised: #1a1e26;
+    --ink-alabaster: #f4efe6;
+    --ink-titanium: #a49e93;
+    --ink-muted: #7c766c;
+    --accent-gold: #e2b659;
+    --accent-vermilion: #d83a16;
+    --accent-vermilion-hover: #ea451e;
+    --accent-ember: #ff5226;
+    --border-gold: rgba(226, 182, 89, 0.16);
+    --border-hairline: rgba(244, 239, 230, 0.08);
+
+    /* Light configurator chrome tokens */
     --ink-primary: #111316;
     --ink-secondary: #59606b;
-    --surface-obsidian: #07080a;
     --surface-panel: #ffffff;
     --surface-subtle: #f4f5f7;
-    --border-hairline: #e5e7eb;
-    --accent-motorsport: #c8102e;
+    --accent-motorsport: #d83a16;
   }
 
   html {
     scroll-behavior: smooth;
     font-family: var(--font-sans);
+    background-color: var(--canvas-obsidian);
   }
 
   html,
@@ -34,7 +48,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid #c8102e;
+    outline: 2px solid var(--accent-gold);
     outline-offset: 2px;
   }
 }
@@ -47,11 +61,24 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* Tactile Kowalski press response on every primary/secondary control */
+.btn-tactile {
+  transition:
+    transform 150ms var(--ease-out),
+    background-color 180ms var(--ease-out),
+    border-color 180ms var(--ease-out),
+    color 180ms var(--ease-out);
+}
+
+.btn-tactile:active {
+  transform: scale(0.97);
+}
+
 /* Choreographed one-shot hero entrance (compositor-only transform + opacity) */
 @keyframes hero-rise {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -69,15 +96,15 @@
 }
 
 .animate-hero-lead {
-  animation: hero-rise 560ms var(--ease-out) both;
+  animation: hero-rise 460ms var(--ease-out) both;
 }
 
 .animate-hero-support {
-  animation: hero-rise 480ms var(--ease-out) 90ms both;
+  animation: hero-rise 420ms var(--ease-out) 60ms both;
 }
 
 .animate-hero-decoration {
-  animation: hero-fade 420ms var(--ease-out) 140ms both;
+  animation: hero-fade 360ms var(--ease-out) 110ms both;
 }
 
 /* Hover-gated card elevation (never triggers sticky hover on touch screens) */
@@ -87,13 +114,13 @@
 
 @media (hover: hover) and (pointer: fine) {
   .porsche-card:hover .porsche-card-img {
-    transform: scale(1.035);
+    transform: scale(1.03);
   }
 }
 
 /* Drawer panel transitions (transform & opacity only) */
 .drawer-backdrop {
-  transition: opacity 260ms var(--ease-out);
+  transition: opacity 240ms var(--ease-out);
 }
 
 .drawer-panel {
@@ -109,8 +136,12 @@
   .animate-hero-lead,
   .animate-hero-support,
   .animate-hero-decoration {
-    animation: hero-fade 240ms ease-out both;
+    animation: hero-fade 220ms ease-out both;
     animation-delay: 0ms;
+  }
+
+  .btn-tactile:active {
+    transform: none;
   }
 
   .porsche-card-img,
@@ -119,7 +150,7 @@
   }
 }
 
-/* Subtle custom scrollbar */
+/* Custom scrollbar themed to the palette */
 .config-scroll::-webkit-scrollbar {
   width: 6px;
 }
@@ -129,10 +160,10 @@
 }
 
 .config-scroll::-webkit-scrollbar-thumb {
-  background: rgba(17, 19, 22, 0.16);
+  background: rgba(17, 19, 22, 0.18);
   border-radius: 9999px;
 }
 
 .config-scroll::-webkit-scrollbar-thumb:hover {
-  background: rgba(17, 19, 22, 0.3);
+  background: rgba(17, 19, 22, 0.34);
 }

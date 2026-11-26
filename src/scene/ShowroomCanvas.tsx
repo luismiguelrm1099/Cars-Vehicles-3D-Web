@@ -79,7 +79,7 @@ function LoadingIndicator() {
         </div>
         <div className="h-1.5 w-full overflow-hidden rounded-full bg-[#E6E8EC]">
           <div
-            className="h-full rounded-full bg-[#C8102E] transition-all duration-200"
+            className="h-full rounded-full bg-[#D83A16] transition-[width] duration-200"
             style={{ width: `${Math.max(8, progress)}%` }}
           />
         </div>
