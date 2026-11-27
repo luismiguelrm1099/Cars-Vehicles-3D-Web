@@ -37,7 +37,7 @@ export default function App() {
       {activeView === 'landing' ? (
         <ShowroomLanding />
       ) : (
-        <div className="flex h-screen w-screen flex-col overflow-hidden bg-[#0B0D10]">
+        <div className="flex h-dvh w-full flex-col overflow-hidden bg-[#0B0D10]">
           <TopBar />
 
           <main className="flex min-h-0 flex-1 flex-col lg:flex-row">

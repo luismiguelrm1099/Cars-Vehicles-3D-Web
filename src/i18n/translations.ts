@@ -98,6 +98,8 @@ export interface Translations {
   viewport: {
     autoRotate: string
     takeSnapshot: string
+    modelTools: string
+    resetLocalModel: string
     loadLocalGlb: string
     usingLocalGlb: string
     usingProceduralPreview: string
@@ -226,6 +228,8 @@ export const translations: Record<Language, Translations> = {
     viewport: {
       autoRotate: 'Turntable',
       takeSnapshot: 'Snapshot',
+      modelTools: 'Model tools',
+      resetLocalModel: 'Restore default model',
       loadLocalGlb: 'Test local .glb',
       usingLocalGlb: 'Custom .glb active',
       usingProceduralPreview: 'Interactive studio model',
@@ -353,6 +357,8 @@ export const translations: Record<Language, Translations> = {
     viewport: {
       autoRotate: 'Girar',
       takeSnapshot: 'Captura',
+      modelTools: 'Herramientas 3D',
+      resetLocalModel: 'Restaurar modelo original',
       loadLocalGlb: 'Probar .glb local',
       usingLocalGlb: '.glb local activo',
       usingProceduralPreview: 'Modelo 3D interactivo',

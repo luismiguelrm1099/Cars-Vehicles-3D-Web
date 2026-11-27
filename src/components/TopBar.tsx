@@ -38,7 +38,7 @@ export function TopBar() {
   const optionsPrice = totalPrice - vehicle.basePrice
 
   return (
-    <header className="relative z-30 flex h-14 shrink-0 items-center justify-between border-b border-[#F0F3F7]/[0.09] bg-[#0B0D10] px-2.5 text-[#F3F5F8] sm:h-16 sm:px-4 lg:px-6">
+    <header className="showroom-navigation relative z-30 flex h-14 shrink-0 items-center justify-between border-b border-[#F0F3F7]/[0.09] bg-[#0B0D10] px-2.5 text-[#F3F5F8] sm:h-16 sm:px-4 lg:px-6">
       {/* Left: Menu Trigger + Progress Digital Wordmark + 3-Vehicle Selector */}
       <div className="flex min-w-0 items-center gap-2 sm:gap-3 lg:gap-5">
         <button

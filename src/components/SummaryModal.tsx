@@ -72,7 +72,7 @@ export function SummaryModal({ captureSnapshot }: SummaryModalProps) {
       aria-modal="true"
       aria-labelledby="summary-title"
     >
-      <div className="flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-[#F0F3F7]/[0.14] bg-[#101318] text-[#F3F5F8] shadow-2xl">
+      <div className="showroom-studio flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-[#F0F3F7]/[0.14] bg-[#101318] text-[#F3F5F8] shadow-2xl">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-[#F0F3F7]/[0.09] px-6 py-4">
           <div>

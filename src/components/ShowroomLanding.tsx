@@ -123,7 +123,7 @@ export function ShowroomLanding() {
       {/* 2. Model Gallery Room (--bg-room #101318 + Real High-Res DSLR Photography) */}
       <section
         id="showroom-models"
-        className="relative w-full border-t border-[#F0F3F7]/[0.09] bg-[#101318] px-5 py-16 sm:px-10 sm:py-24 lg:px-16 lg:py-28"
+        className="showroom-collection relative w-full border-t border-[#F0F3F7]/[0.09] px-5 py-16 sm:px-10 sm:py-24 lg:px-16 lg:py-28"
       >
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
@@ -144,8 +144,7 @@ export function ShowroomLanding() {
             {flagshipCars.map((v) => (
               <article
                 key={v.id}
-                onClick={() => openConfiguratorForVehicle(v.id)}
-                className="porsche-card group relative flex aspect-[4/3] cursor-pointer flex-col justify-between overflow-hidden rounded-2xl border border-[#F0F3F7]/[0.09] bg-[#151920] p-6 text-[#F3F5F8] transition-[border-color] duration-200 hover:border-[#F0F3F7]/[0.24] sm:p-8"
+                className="porsche-card group relative flex aspect-[4/3] cursor-pointer flex-col justify-between overflow-hidden rounded-xl border border-[#F0F3F7]/[0.09] bg-[#151920] p-6 text-[#F3F5F8] transition-[border-color] duration-200 hover:border-[#F0F3F7]/[0.24] sm:p-8"
               >
                 <img
                   src={`/previews/${v.id}.webp`}
@@ -169,8 +168,8 @@ export function ShowroomLanding() {
                 </div>
 
                 {/* Bottom metadata + Amarillo Señal hover action */}
-                <div className="relative z-10 flex items-end justify-between gap-4">
-                  <div>
+                <div className="flex items-end justify-between gap-4">
+                  <div className="relative">
                     <div className="text-base font-medium text-[#F3F5F8] sm:text-lg">
                       {v.brand} {v.name}
                     </div>
@@ -184,9 +183,14 @@ export function ShowroomLanding() {
                       </span>
                     </div>
                   </div>
-                  <span className="btn-tactile flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#F0F3F7]/[0.24] bg-[#0B0D10]/60 text-[#F3F5F8] backdrop-blur-sm group-hover:border-[#F4C430] group-hover:bg-[#F4C430] group-hover:text-[#090B0E]">
+                  <button
+                    type="button"
+                    onClick={() => openConfiguratorForVehicle(v.id)}
+                    aria-label={`${t.landing.configureModel} · ${v.brand} ${v.name}`}
+                    className="showroom-card-action cursor-pointer flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#F0F3F7]/[0.24] bg-[#0B0D10]/80 text-[#F3F5F8] group-hover:border-[#F4C430] group-hover:bg-[#F4C430] group-hover:text-[#090B0E]"
+                  >
                     <ArrowRight className="h-4 w-4 stroke-[1.5]" />
-                  </span>
+                  </button>
                 </div>
               </article>
             ))}
@@ -195,8 +199,7 @@ export function ShowroomLanding() {
           {/* Panoramic Modular Utility Card (Honda Acty HA3) */}
           {utilityVehicle && (
             <article
-              onClick={() => openConfiguratorForVehicle(utilityVehicle.id)}
-              className="porsche-card group relative mt-6 grid cursor-pointer overflow-hidden rounded-2xl border border-[#F0F3F7]/[0.09] bg-[#151920] text-[#F3F5F8] transition-[border-color] duration-200 hover:border-[#F0F3F7]/[0.24] lg:grid-cols-12"
+              className="porsche-card group relative mt-6 grid cursor-pointer overflow-hidden rounded-xl border border-[#F0F3F7]/[0.09] bg-[#151920] text-[#F3F5F8] transition-[border-color] duration-200 hover:border-[#F0F3F7]/[0.24] lg:grid-cols-12"
             >
               <div className="relative aspect-[16/10] overflow-hidden lg:col-span-7 lg:aspect-auto lg:min-h-[360px]">
                 <img
@@ -211,8 +214,8 @@ export function ShowroomLanding() {
                 />
               </div>
 
-              <div className="relative z-10 flex flex-col justify-between p-6 sm:p-8 lg:col-span-5 lg:p-10">
-                <div>
+              <div className="flex flex-col justify-between p-6 sm:p-8 lg:col-span-5 lg:p-10">
+                <div className="relative">
                   <div className="font-wordmark text-lg tracking-[0.2em] text-[#F3F5F8] sm:text-xl">
                     ACTY HA3
                   </div>
@@ -225,13 +228,18 @@ export function ShowroomLanding() {
                 </div>
 
                 <div className="mt-8 flex items-center justify-between border-t border-[#F0F3F7]/[0.09] pt-5">
-                  <div className="tabular-nums text-sm font-medium text-[#F4C430]">
+                  <div className="relative tabular-nums text-sm font-medium text-[#F4C430]">
                     {t.landing.startingFrom} {formatCurrency(utilityVehicle.basePrice)}
                   </div>
-                  <span className="btn-tactile inline-flex items-center gap-2 rounded-full border border-[#F0F3F7]/[0.22] bg-[#1B2029] px-4 py-2 text-xs font-medium text-[#F3F5F8] group-hover:border-[#F4C430] group-hover:bg-[#F4C430] group-hover:text-[#090B0E]">
+                  <button
+                    type="button"
+                    onClick={() => openConfiguratorForVehicle(utilityVehicle.id)}
+                    aria-label={`${t.landing.configureModel} · ${utilityVehicle.brand} ${utilityVehicle.name}`}
+                    className="showroom-card-action cursor-pointer inline-flex items-center gap-2 rounded-full border border-[#F0F3F7]/[0.22] bg-[#1B2029] px-4 py-2 text-xs font-medium text-[#F3F5F8] group-hover:border-[#F4C430] group-hover:bg-[#F4C430] group-hover:text-[#090B0E]"
+                  >
                     <span>{t.landing.configureModel}</span>
                     <ArrowRight className="h-3.5 w-3.5 stroke-[1.5]" />
-                  </span>
+                  </button>
                 </div>
               </div>
             </article>
@@ -240,7 +248,7 @@ export function ShowroomLanding() {
       </section>
 
       {/* 3. Closing Obsidian Studio Band & Branded Progress Digital Footer */}
-      <section className="w-full border-t border-[#F0F3F7]/[0.09] bg-[#0B0D10] px-5 py-16 text-[#F3F5F8] sm:px-10 sm:py-20 lg:px-16">
+      <section className="showroom-studio w-full border-t border-[#F0F3F7]/[0.09] px-5 py-16 text-[#F3F5F8] sm:px-10 sm:py-20 lg:px-16">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
           <div className="max-w-xl">
             <h2 className="text-[28px] leading-[1.15] font-normal tracking-[-0.025em] text-[#F3F5F8] sm:text-4xl">

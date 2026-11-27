@@ -74,7 +74,7 @@ export function ConfigSidebar() {
 
   return (
     <aside
-      className={`z-20 flex w-full shrink-0 flex-col border-t border-[#F0F3F7]/[0.09] bg-[#101318] text-[#F3F5F8] lg:h-full lg:w-[390px] lg:border-t-0 lg:border-l ${
+      className={`config-panel z-20 flex w-full shrink-0 flex-col border-t border-[#F0F3F7]/[0.09] bg-[#101318] text-[#F3F5F8] lg:h-full lg:w-[390px] xl:w-[410px] lg:border-t-0 lg:border-l ${
         mobileExpanded ? 'h-[62vh]' : 'h-[42vh]'
       } transition-[height] duration-200 lg:transition-none`}
     >
@@ -113,7 +113,7 @@ export function ConfigSidebar() {
       <div className="hidden border-b border-[#F0F3F7]/[0.09] px-6 pt-5 pb-4 lg:block">
         <div className="flex items-start justify-between gap-2">
           <div>
-            <h1 className="text-lg font-semibold tracking-tight text-[#F3F5F8]">
+            <h1 className="text-2xl font-semibold tracking-tight text-[#F3F5F8]">
               {vehicle.brand} {vehicle.name}
             </h1>
             <p className="mt-0.5 text-xs text-[#99A3B2]">
@@ -196,7 +196,8 @@ export function ConfigSidebar() {
                     key={paint.id}
                     type="button"
                     onClick={() => setPaint(paint.id)}
-                    className={`btn-tactile flex w-full cursor-pointer items-center justify-between rounded-xl border p-3 text-left ${
+                    aria-pressed={selected}
+                    className={`config-option btn-tactile flex w-full cursor-pointer items-center justify-between rounded-xl border p-3 text-left ${
                       selected
                         ? 'border-[#18C8F0] bg-[#18C8F0]/[0.12]'
                         : 'border-[#F0F3F7]/[0.09] bg-[#151920] hover:border-[#F0F3F7]/[0.22] hover:bg-[#1B2029]'
@@ -271,7 +272,8 @@ export function ConfigSidebar() {
                     key={interior.id}
                     type="button"
                     onClick={() => setInterior(interior.id)}
-                    className={`btn-tactile flex w-full cursor-pointer items-center justify-between rounded-xl border p-3.5 text-left ${
+                    aria-pressed={selected}
+                    className={`config-option btn-tactile flex w-full cursor-pointer items-center justify-between rounded-xl border p-3.5 text-left ${
                       selected
                         ? 'border-[#18C8F0] bg-[#18C8F0]/[0.12]'
                         : 'border-[#F0F3F7]/[0.09] bg-[#151920] hover:border-[#F0F3F7]/[0.22] hover:bg-[#1B2029]'
@@ -333,7 +335,8 @@ export function ConfigSidebar() {
                         setWheel(wheel.id)
                         if (activeCamera === 'interior') setActiveCamera('wheels')
                       }}
-                      className={`btn-tactile flex w-full cursor-pointer items-center justify-between rounded-xl border p-3 text-left ${
+                      aria-pressed={selected}
+                      className={`config-option btn-tactile flex w-full cursor-pointer items-center justify-between rounded-xl border p-3 text-left ${
                         selected
                           ? 'border-[#18C8F0] bg-[#18C8F0]/[0.12]'
                           : 'border-[#F0F3F7]/[0.09] bg-[#151920] hover:border-[#F0F3F7]/[0.22] hover:bg-[#1B2029]'
@@ -383,7 +386,8 @@ export function ConfigSidebar() {
                       key={caliper.id}
                       type="button"
                       onClick={() => setCaliper(caliper.id)}
-                      className={`btn-tactile flex cursor-pointer items-center gap-2.5 rounded-xl border p-2.5 text-left ${
+                      aria-pressed={selected}
+                      className={`config-option btn-tactile flex cursor-pointer items-center gap-2.5 rounded-xl border p-2.5 text-left ${
                         selected
                           ? 'border-[#18C8F0] bg-[#18C8F0]/[0.12]'
                           : 'border-[#F0F3F7]/[0.09] bg-[#151920] hover:border-[#F0F3F7]/[0.22] hover:bg-[#1B2029]'
@@ -426,7 +430,8 @@ export function ConfigSidebar() {
                       key={acc.id}
                       type="button"
                       onClick={() => toggleAccessory(acc.id)}
-                      className={`btn-tactile flex w-full cursor-pointer items-start justify-between gap-3 rounded-xl border p-3.5 text-left ${
+                      aria-pressed={enabled}
+                      className={`config-option btn-tactile flex w-full cursor-pointer items-start justify-between gap-3 rounded-xl border p-3.5 text-left ${
                         enabled
                           ? 'border-[#18C8F0] bg-[#18C8F0]/[0.12]'
                           : 'border-[#F0F3F7]/[0.09] bg-[#151920] hover:border-[#F0F3F7]/[0.22] hover:bg-[#1B2029]'

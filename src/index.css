@@ -196,3 +196,63 @@
 .config-scroll::-webkit-scrollbar-thumb:hover {
   background: rgba(240, 243, 247, 0.3);
 }
+
+.hero-stage {
+  background:
+    linear-gradient(180deg, transparent 63%, var(--bg) 100%),
+    radial-gradient(ellipse at 56% 45%, #232013 0%, #13171c 39%, var(--bg) 76%);
+}
+
+.hero-fallback {
+  position: absolute;
+  inset: 0;
+  width: min(86%, 58rem);
+  height: 76%;
+  margin: auto;
+  object-fit: contain;
+}
+
+.showroom-collection {
+  background: radial-gradient(ellipse at 50% 22%, var(--surface) 0%, var(--bg) 70%);
+}
+
+.showroom-collection article {
+  box-shadow: 0 18px 48px #0005;
+}
+
+.showroom-studio {
+  background: linear-gradient(125deg, var(--bg-room), var(--bg) 68%);
+}
+
+.config-panel {
+  background: linear-gradient(145deg, var(--surface), var(--bg-room) 44%);
+}
+
+.config-option[aria-pressed="true"] {
+  box-shadow: inset 3px 0 var(--accent);
+}
+
+.config-option {
+  min-height: 3.25rem;
+}
+
+.showroom-card-action::after {
+  position: absolute;
+  z-index: 10;
+  inset: 0;
+  content: '';
+}
+
+.showroom-collection article:focus-within {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+}
+
+.showroom-card-action {
+  transition: background-color 180ms var(--ease-out), color 180ms var(--ease-out), border-color 180ms var(--ease-out);
+}
+
+.showroom-navigation,
+.drawer-panel {
+  background: linear-gradient(110deg, var(--bg-room), var(--bg) 72%);
+}

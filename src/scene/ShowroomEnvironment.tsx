@@ -41,8 +41,8 @@ function AgencyArchitecture() {
       <mesh position={[0, -0.022, 0]} receiveShadow>
         <cylinderGeometry args={[3.42, 3.48, 0.044, 72]} />
         <meshPhysicalMaterial
-          color="#e8eaee"
-          roughness={0.44}
+          color="#aab3c0"
+          roughness={0.36}
           metalness={0.04}
           clearcoat={0.14}
           clearcoatRoughness={0.38}
@@ -52,7 +52,7 @@ function AgencyArchitecture() {
       {/* Outer brushed-aluminum turntable trim ring */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.002, 0]}>
         <ringGeometry args={[3.35, 3.43, 72]} />
-        <meshStandardMaterial color="#8f96a2" metalness={0.72} roughness={0.38} />
+        <meshStandardMaterial color="#18C8F0" metalness={0.55} roughness={0.32} emissive="#18C8F0" emissiveIntensity={0.12} />
       </mesh>
 
       {/* Inner concentric turntable seam ring */}
@@ -65,7 +65,7 @@ function AgencyArchitecture() {
       <mesh position={[0, 2.35, -0.25]}>
         <cylinderGeometry args={[5.55, 5.55, 4.8, 64, 1, true, Math.PI * 0.62, Math.PI * 0.96]} />
         <meshStandardMaterial
-          color="#e5e7eb"
+          color="#7f8999"
           roughness={0.94}
           metalness={0.0}
           side={THREE.BackSide}
@@ -275,7 +275,7 @@ export function ShowroomEnvironment({
         <Lightformer
           form="rect"
           intensity={1.1}
-          color="#e5edf7"
+          color={theme === 'light' ? '#e5edf7' : '#a8dcf2'}
           position={[-7.2, 1.85, -1.6]}
           rotation={[0, Math.PI / 2.2, 0]}
           scale={[10, 1.35, 1]}
@@ -328,7 +328,7 @@ export function ShowroomEnvironment({
       <directionalLight
         position={[-5.2, 4.4, -4.5]}
         intensity={theme === 'dark' ? 0.72 : 0.6}
-        color={theme === 'dark' ? '#d4e2f7' : '#f1f5f9'}
+        color={theme === 'light' ? '#f1f5f9' : '#b0d8ef'}
       />
 
       <pointLight
